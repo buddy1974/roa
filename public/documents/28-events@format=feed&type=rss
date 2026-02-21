@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Home</title>
+		<description><![CDATA[]]></description>
+		<link>https://ambazonia.org/en/28-events</link>
+		<lastBuildDate>Sat, 14 Feb 2026 15:37:43 +0000</lastBuildDate>
+		<generator>Joomla! - Open Source Content Management</generator>
+		<atom:link rel="self" type="application/rss+xml" href="https://ambazonia.org/en/28-events?format=feed&amp;type=rss"/>
+		<language>en-gb</language>
+		<item>
+			<title>Summer Camp</title>
+			<link>https://ambazonia.org/en/28-events/98-summer-camp</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/28-events/98-summer-camp</guid>
+			<description><![CDATA[<p><img src="https://ambazonia.org/images/demo/default/tabs/event_1.jpg" /></p><p class="uk-article-lead">Learn something new</p>
+
+<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="uk-article-meta">30 July 2017</div>]]></description>
+			<category>Events</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>Expound your knowledge</title>
+			<link>https://ambazonia.org/en/28-events/99-expound-your-knowledge</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/28-events/99-expound-your-knowledge</guid>
+			<description><![CDATA[<p><img src="https://ambazonia.org/images/demo/default/tabs/event_2.jpg" /></p><p class="uk-article-lead">Expound your knowledge</p>
+<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+<div class="uk-article-meta">19 August 2017</div>]]></description>
+			<category>Events</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>Research &amp; Development</title>
+			<link>https://ambazonia.org/en/28-events/100-research-development</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/28-events/100-research-development</guid>
+			<description><![CDATA[<p><img src="https://ambazonia.org/images/demo/default/tabs/event_3.jpg" /></p><p class="uk-article-lead">Lead by example</p>
+
+<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="uk-article-meta">23 September 2017</div>]]></description>
+			<category>Events</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>Build your foundation</title>
+			<link>https://ambazonia.org/en/28-events/101-build-your-foundation</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/28-events/101-build-your-foundation</guid>
+			<description><![CDATA[<p><img src="https://ambazonia.org/images/demo/default/tabs/event_4.jpg" /></p><p class="uk-article-lead">Build your momentum</p>
+
+<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="uk-article-meta">08 October 2017</div>]]></description>
+			<category>Events</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+	</channel>
+</rss>

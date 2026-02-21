@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<feed xmlns="http://www.w3.org/2005/Atom"  xml:lang="en-gb">
+	<title type="text">Home</title>
+	<subtitle type="text"></subtitle>
+	<link rel="alternate" type="text/html" href="https://ambazonia.org"/>
+	<id>https://ambazonia.org/en/7-blog</id>
+	<updated>2026-02-14T15:35:44+00:00</updated>
+	<author>
+		<name>Republic of Ambazonia (RoA)</name>
+	</author>
+	<generator uri="https://www.joomla.org">Joomla! - Open Source Content Management</generator>
+	<link rel="self" type="application/atom+xml" href="https://ambazonia.org/en/7-blog?format=feed&amp;type=atom"/>
+	<entry>
+		<title>Life is a series of natural and spontaneous changes</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/7-blog/29-life-is-a-series-of-natural-and-spontaneous-changes"/>
+		<published>2018-01-13T00:11:51+00:00</published>
+		<updated>2018-01-13T00:11:51+00:00</updated>
+		<id>https://ambazonia.org/en/7-blog/29-life-is-a-series-of-natural-and-spontaneous-changes</id>
+		<summary type="html">&lt;p&gt;&lt;img src=&quot;https://ambazonia.org/images/demo/general/blog-3.jpg&quot; /&gt;&lt;/p&gt;&lt;p&gt;Life is a series of natural and spontaneous changes. Don't resist them - that only creates sorrow. Let reality be reality. Let things flow naturally forward in whatever way they like. Live each day as it were your last. We are taught you must blame your father, your sisters, your brothers, the school, the teachers - but never blame yourself. It's never your fault. But it's always your fault, because if you wanted to change you're the one who has got to change&lt;/p&gt;
+</summary>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://ambazonia.org/images/demo/general/blog-3.jpg&quot; /&gt;&lt;/p&gt;&lt;p&gt;Life is a series of natural and spontaneous changes. Don't resist them - that only creates sorrow. Let reality be reality. Let things flow naturally forward in whatever way they like. Live each day as it were your last. We are taught you must blame your father, your sisters, your brothers, the school, the teachers - but never blame yourself. It's never your fault. But it's always your fault, because if you wanted to change you're the one who has got to change&lt;/p&gt;
+</content>
+		<category term="Blog" />
+	</entry>
+	<entry>
+		<title>Nothing can be done without hope and confidence</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/7-blog/30-nothing-can-be-done-without-hope-and-confidence"/>
+		<published>2018-01-13T00:11:51+00:00</published>
+		<updated>2018-01-13T00:11:51+00:00</updated>
+		<id>https://ambazonia.org/en/7-blog/30-nothing-can-be-done-without-hope-and-confidence</id>
+		<summary type="html">&lt;p&gt;&lt;img src=&quot;https://ambazonia.org/images/demo/general/blog-4.jpg&quot; /&gt;&lt;/p&gt;&lt;p&gt;Always continue the climb. It is possible for you to do &lt;a href=&quot;https://ambazonia.org/#&quot;&gt;whatever you choose&lt;/a&gt;, if you first get to know who you are and are willing to work with a power that is greater than ourselves to do it. We are taught you must blame your father, your sisters, your brothers, the school, the teachers - but never blame yourself&lt;/p&gt;
+</summary>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://ambazonia.org/images/demo/general/blog-4.jpg&quot; /&gt;&lt;/p&gt;&lt;p&gt;Always continue the climb. It is possible for you to do &lt;a href=&quot;https://ambazonia.org/#&quot;&gt;whatever you choose&lt;/a&gt;, if you first get to know who you are and are willing to work with a power that is greater than ourselves to do it. We are taught you must blame your father, your sisters, your brothers, the school, the teachers - but never blame yourself&lt;/p&gt;
+</content>
+		<category term="Blog" />
+	</entry>
+</feed>

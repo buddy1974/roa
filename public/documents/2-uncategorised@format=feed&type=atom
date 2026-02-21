@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<feed xmlns="http://www.w3.org/2005/Atom"  xml:lang="en-gb">
+	<title type="text">Home</title>
+	<subtitle type="text"></subtitle>
+	<link rel="alternate" type="text/html" href="https://ambazonia.org"/>
+	<id>https://ambazonia.org/en/2-uncategorised</id>
+	<updated>2026-02-14T15:35:32+00:00</updated>
+	<author>
+		<name>Republic of Ambazonia (RoA)</name>
+	</author>
+	<generator uri="https://www.joomla.org">Joomla! - Open Source Content Management</generator>
+	<link rel="self" type="application/atom+xml" href="https://ambazonia.org/en/2-uncategorised?format=feed&amp;type=atom"/>
+	<entry>
+		<title>Attorney General</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/gov/judiciary/attorney-general"/>
+		<published>2018-05-19T00:44:03+00:00</published>
+		<updated>2018-05-19T00:44:03+00:00</updated>
+		<id>https://ambazonia.org/en/gov/judiciary/attorney-general</id>
+		<summary type="html">&lt;p&gt;Page under construction&lt;/p&gt;</summary>
+		<content type="html">&lt;p&gt;Page under construction&lt;/p&gt;</content>
+		<category term="Uncategorised" />
+	</entry>
+	<entry>
+		<title>Government</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/2-uncategorised/232-government"/>
+		<published>2018-05-17T14:03:14+00:00</published>
+		<updated>2018-05-17T14:03:14+00:00</updated>
+		<id>https://ambazonia.org/en/2-uncategorised/232-government</id>
+		<category term="Uncategorised" />
+	</entry>
+	<entry>
+		<title>General Forms And Appeals</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/2-uncategorised/231-general-forms"/>
+		<published>2018-05-12T17:04:36+00:00</published>
+		<updated>2018-05-12T17:04:36+00:00</updated>
+		<id>https://ambazonia.org/en/2-uncategorised/231-general-forms</id>
+		<summary type="html">&lt;p&gt;Currently unavailable. Please come back later.&lt;/p&gt;</summary>
+		<content type="html">&lt;p&gt;Currently unavailable. Please come back later.&lt;/p&gt;</content>
+		<category term="Uncategorised" />
+	</entry>
+	<entry>
+		<title>National Anthem</title>
+		<link rel="alternate" type="text/html" href="https://ambazonia.org/en/about/the-national-anthem"/>
+		<published>2018-04-26T23:56:39+00:00</published>
+		<updated>2018-04-26T23:56:39+00:00</updated>
+		<id>https://ambazonia.org/en/about/the-national-anthem</id>
+		<summary type="html">&lt;h1&gt;Hail Ambazonia, Land of Glory&lt;/h1&gt;
+&lt;p&gt;&lt;audio src=&quot;https://ambazonia.org/images/official/audio/ambazonian-national-anthem.mp3&quot; controls=&quot;controls&quot;&gt;
+&lt;p&gt;HAIL HAIL HAIL THIS Land of Glory&lt;br /&gt; We the Ambazonians pledge your loyalty&lt;/p&gt;
+&lt;p&gt;Praise the Son our Saviour who granted us the freedom,&lt;/p&gt;
+&lt;p&gt;Allegiance to the heroes who bore the land with their blood,&lt;/p&gt;
+&lt;p&gt;Glory to glory we rise and never to fall,&lt;/p&gt;
+&lt;p&gt;Here in our nation flowing with milk and honey,&lt;br /&gt; Glory, glory, glory to the father,&lt;/p&gt;
+&lt;p&gt;For making you a nation a joy forevermore.&lt;/p&gt;
+&lt;p&gt;Ambazonia, land of freedom you shall live in plenty meeting our needs,&lt;/p&gt;
+&lt;p&gt;And your children shall be like the stars above,&lt;/p&gt;
+&lt;p&gt;The Most High God be the Watchman of this Nation.&lt;/p&gt;
+&lt;p&gt;Ambazonia, land of freedom you shall live in plenty meeting our needs,&lt;/p&gt;
+&lt;p&gt;And your children shall be like the stars above,&lt;/p&gt;
+&lt;p&gt;The Most High God be the Watchman of this Nation.&lt;/p&gt;&lt;/audio&gt;&lt;/p&gt;</summary>
+		<content type="html">&lt;h1&gt;Hail Ambazonia, Land of Glory&lt;/h1&gt;
+&lt;p&gt;&lt;audio src=&quot;https://ambazonia.org/images/official/audio/ambazonian-national-anthem.mp3&quot; controls=&quot;controls&quot;&gt;
+&lt;p&gt;HAIL HAIL HAIL THIS Land of Glory&lt;br /&gt; We the Ambazonians pledge your loyalty&lt;/p&gt;
+&lt;p&gt;Praise the Son our Saviour who granted us the freedom,&lt;/p&gt;
+&lt;p&gt;Allegiance to the heroes who bore the land with their blood,&lt;/p&gt;
+&lt;p&gt;Glory to glory we rise and never to fall,&lt;/p&gt;
+&lt;p&gt;Here in our nation flowing with milk and honey,&lt;br /&gt; Glory, glory, glory to the father,&lt;/p&gt;
+&lt;p&gt;For making you a nation a joy forevermore.&lt;/p&gt;
+&lt;p&gt;Ambazonia, land of freedom you shall live in plenty meeting our needs,&lt;/p&gt;
+&lt;p&gt;And your children shall be like the stars above,&lt;/p&gt;
+&lt;p&gt;The Most High God be the Watchman of this Nation.&lt;/p&gt;
+&lt;p&gt;Ambazonia, land of freedom you shall live in plenty meeting our needs,&lt;/p&gt;
+&lt;p&gt;And your children shall be like the stars above,&lt;/p&gt;
+&lt;p&gt;The Most High God be the Watchman of this Nation.&lt;/p&gt;&lt;/audio&gt;&lt;/p&gt;</content>
+		<category term="Uncategorised" />
+	</entry>
+</feed>

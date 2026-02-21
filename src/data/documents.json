@@ -1,0 +1,759 @@
+{
+  "documents": [
+    {
+      "id": "00120-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2031st20july201958",
+      "title": "001 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 31st July 1958",
+      "file": "/documents/00120-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2031st20july201958.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "00320-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2013th20january201960",
+      "title": "003 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 13th January 1960",
+      "file": "/documents/00320-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2013th20january201960.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "00420-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2013th20june201960",
+      "title": "004 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 13th June 1960",
+      "file": "/documents/00420-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2013th20june201960.pdf",
+      "year": "2019",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "00520-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2016th20march201961",
+      "title": "005 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 16th March 1961",
+      "file": "/documents/00520-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2016th20march201961.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "00620-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2021st20march201961",
+      "title": "006 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 21st March 1961",
+      "file": "/documents/00620-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2021st20march201961.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "00720-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2026th20june201961",
+      "title": "007 Declassified Her Britannic Majestys Government Secret On Southern Cameroons 26th June 1961",
+      "file": "/documents/00720-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2026th20june201961.pdf",
+      "year": "2019",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "00820-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2029th20june201961",
+      "title": "008 Declassified Her Britannic Majestys Government Secret On Southern Cameroons ) Th June 1961",
+      "file": "/documents/00820-declassified20her20britannic20majestys20government20secret20on20southern20cameroons2029th20june201961.pdf",
+      "year": "2019",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "00920-declassified20her20britannic20majesty20queens20speech2017th20october201961",
+      "title": "009 Declassified Her Britannic Majesty Queens Speech 17th October 1961",
+      "file": "/documents/00920-declassified20her20britannic20majesty20queens20speech2017th20october201961.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "01020-declassified20confidential20her20britannic20majestys20government20decision20on20southern20cameroons2028th20nov201961",
+      "title": "010 Declassified Confidential Her Britannic Majestys Government Decision On Southern Cameroons 28th Nov 1961",
+      "file": "/documents/01020-declassified20confidential20her20britannic20majestys20government20decision20on20southern20cameroons2028th20nov201961.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "adamstown20minutes20of20feb2025202001",
+      "title": "Adamstown Minutes Of Feb 25 01",
+      "file": "/documents/adamstown20minutes20of20feb2025202001.pdf",
+      "year": "2020",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambaz20star20-maiden20edition",
+      "title": "Ambaz Star Maiden Edition",
+      "file": "/documents/ambaz20star20-maiden20edition.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambaz20star20page2015",
+      "title": "Ambaz Star Page 15",
+      "file": "/documents/ambaz20star20page2015.pdf",
+      "year": "2015",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambaz20star20page2016",
+      "title": "Ambaz Star Page 16",
+      "file": "/documents/ambaz20star20page2016.pdf",
+      "year": "2016",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonia20civil20defence20force20enrolment20form",
+      "title": "Ambazonia Civil Defence Force Enrolment Form",
+      "file": "/documents/ambazonia20civil20defence20force20enrolment20form.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonia20diasporan20asylum20agency",
+      "title": "Ambazonia Diasporan Asylum Agency",
+      "file": "/documents/ambazonia20diasporan20asylum20agency.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonia20interpleader20summons20at20icj-20may201994",
+      "title": "Ambazonia Interpleader Summons At Icj May 1994",
+      "file": "/documents/ambazonia20interpleader20summons20at20icj-20may201994.pdf",
+      "year": "2019",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonian20govt20in20exile20proposal20to20stop20the20sale20of20cdc",
+      "title": "Ambazonian Govt In Exile Proposal To Stop The Sale Of Cdc",
+      "file": "/documents/ambazonian20govt20in20exile20proposal20to20stop20the20sale20of20cdc.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonian20law20enforcement20task20force20ordinance",
+      "title": "Ambazonian Law Enforcement Task Force Ordinance",
+      "file": "/documents/ambazonian20law20enforcement20task20force20ordinance.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ambazonian20strategy20for20restoration20of20power20to20the20people20rejected20by20sdf",
+      "title": "Ambazonian Strategy For Restoration Of Power To The People Rejected By Sdf",
+      "file": "/documents/ambazonian20strategy20for20restoration20of20power20to20the20people20rejected20by20sdf.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": [
+        "restoration"
+      ]
+    },
+    {
+      "id": "an20open20letter20to20cameroun20the20letat-major20of20cameroun",
+      "title": "An Open Letter To Cameroun The Letat Major Of Cameroun",
+      "file": "/documents/an20open20letter20to20cameroun20the20letat-major20of20cameroun.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "bakassi20deal20invalid",
+      "title": "Bakassi Deal Invalid",
+      "file": "/documents/bakassi20deal20invalid.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "bakassi20peninsular20dispute",
+      "title": "Bakassi Peninsular Dispute",
+      "file": "/documents/bakassi20peninsular20dispute.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "boundary20treaty20betweeen20british20and20french20cameroons20original20version",
+      "title": "Boundary Treaty Betweeen British And French Cameroons Original Version",
+      "file": "/documents/boundary20treaty20betweeen20british20and20french20cameroons20original20version.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "breach20of20international20obligations",
+      "title": "Breach Of International Obligations",
+      "file": "/documents/breach20of20international20obligations.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "cameroon20membership20application20at20the20un",
+      "title": "Cameroon Membership Application At The Un",
+      "file": "/documents/cameroon20membership20application20at20the20un.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "cameroun20as20illegal20landlord20over20ambazonia",
+      "title": "Cameroun As Illegal Landlord Over Ambazonia",
+      "file": "/documents/cameroun20as20illegal20landlord20over20ambazonia.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "constitution20of20the20federal20republic20of20cameroun",
+      "title": "Constitution Of The Federal Republic Of Cameroun",
+      "file": "/documents/constitution20of20the20federal20republic20of20cameroun.pdf",
+      "year": null,
+      "category": "constitutional",
+      "relatedSections": [
+        "plebiscite",
+        "federal"
+      ]
+    },
+    {
+      "id": "courrier20by20gorji20dinka20to20paul20biya20retyped20copy",
+      "title": "Courrier By Gorji Dinka To Paul Biya Retyped Copy",
+      "file": "/documents/courrier20by20gorji20dinka20to20paul20biya20retyped20copy.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "enforcement20of20judgments20by20extra-judicial20process",
+      "title": "Enforcement Of Judgments By Extra Judicial Process",
+      "file": "/documents/enforcement20of20judgments20by20extra-judicial20process.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "fon20dinkas20plea20for20abazonia-scnc20merger20rejected20by20scnc",
+      "title": "Fon Dinkas Plea For Abazonia Scnc Merger Rejected By Scnc",
+      "file": "/documents/fon20dinkas20plea20for20abazonia-scnc20merger20rejected20by20scnc.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "fon20dinkas20reply20to20cam20-20why20only20the20truth20shall20set20us20free",
+      "title": "Fon Dinkas Reply To Cam Why Only The Truth Shall Set Us Free",
+      "file": "/documents/fon20dinkas20reply20to20cam20-20why20only20the20truth20shall20set20us20free.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "gorji-dinka_copies20of20letters20sent20today",
+      "title": "Gorji Dinka Copies Of Letters Sent Today",
+      "file": "/documents/gorji-dinka_copies20of20letters20sent20today.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "gorji-dinks_meeting20with20high20commissioner",
+      "title": "Gorji Dinks Meeting With High Commissioner",
+      "file": "/documents/gorji-dinks_meeting20with20high20commissioner.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "hcb28-9220explained20by20fon20fongum20gorji-dinka",
+      "title": "Hcb ( 92 Explained By Fon Fongum Gorji Dinka",
+      "file": "/documents/hcb28-9220explained20by20fon20fongum20gorji-dinka.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "hcb28-9220le20messager",
+      "title": "Hcb ( 92 Le Messager",
+      "file": "/documents/hcb28-9220le20messager.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "hcb28-9220of20challenge20bi-hebdo20no2010520of20monday20august2023-1993",
+      "title": "Hcb ( 92 Of Challenge Bi Hebdo No 105 Of Monday August 23 1993",
+      "file": "/documents/hcb28-9220of20challenge20bi-hebdo20no2010520of20monday20august2023-1993.pdf",
+      "year": "1993",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "hcb28-9220retyped",
+      "title": "Hcb ( 92 Retyped",
+      "file": "/documents/hcb28-9220retyped.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "k.n.c20-20k.p.p.20merger2c20and20formation20of20cameroons20peoples20national20convention",
+      "title": "K.n.c K.p.p. Merger, And Formation Of Cameroons Peoples National Convention",
+      "file": "/documents/k.n.c20-20k.p.p.20merger2c20and20formation20of20cameroons20peoples20national20convention.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "law20enforcement20peoples20action20ordinance",
+      "title": "Law Enforcement Peoples Action Ordinance",
+      "file": "/documents/law20enforcement20peoples20action20ordinance.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "legal20analysis20of20un20article2076b20on20future20of20the20cameroons20under20british20administration",
+      "title": "Legal Analysis Of Un Article 76b On Future Of The Cameroons Under British Administration",
+      "file": "/documents/legal20analysis20of20un20article2076b20on20future20of20the20cameroons20under20british20administration.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "legal20analysis20of20un20article2076b20on20termination20of20the20trusteeship20agreement20of20british20cameroons",
+      "title": "Legal Analysis Of Un Article 76b On Termination Of The Trusteeship Agreement Of British Cameroons",
+      "file": "/documents/legal20analysis20of20un20article2076b20on20termination20of20the20trusteeship20agreement20of20british20cameroons.pdf",
+      "year": null,
+      "category": "international",
+      "relatedSections": [
+        "trusteeship"
+      ]
+    },
+    {
+      "id": "letter20to20biya20on20320wise20men",
+      "title": "Letter To Biya On 3 Wise Men",
+      "file": "/documents/letter20to20biya20on20320wise20men.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "muna27s20speech20at20the20un20ga20acknowledging20unification202620independence20of20the20cameroons",
+      "title": "Muna's Speech At The Un Ga Acknowledging Unification 26 Independence Of The Cameroons",
+      "file": "/documents/muna27s20speech20at20the20un20ga20acknowledging20unification202620independence20of20the20cameroons.pdf",
+      "year": "2026",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "munas20speech20at20the20un20ga20acknowledging20unification202620independence20of20the20cameroons",
+      "title": "Munas Speech At The Un Ga Acknowledging Unification 26 Independence Of The Cameroons",
+      "file": "/documents/munas20speech20at20the20un20ga20acknowledging20unification202620independence20of20the20cameroons.pdf",
+      "year": "2026",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "nigeria-ambazonia20judgement20implementation20cooperation20accord",
+      "title": "Nigeria Ambazonia Judgement Implementation Cooperation Accord",
+      "file": "/documents/nigeria-ambazonia20judgement20implementation20cooperation20accord.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "notification20of20judgment20of20suit20fhc-abj-cs-526-2013",
+      "title": "Notification Of Judgment Of Suit Fhc Abj Cs 526 13",
+      "file": "/documents/notification20of20judgment20of20suit20fhc-abj-cs-526-2013.pdf",
+      "year": "2013",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "open20letter20to20paul20biya",
+      "title": "Open Letter To Paul Biya",
+      "file": "/documents/open20letter20to20paul20biya.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance-ambazonian-independent-bailiff-non-governmental-organization-ordinance-aibango",
+      "title": "Ordinance Ambazonian Independent Bailiff Non Governmental Organization Ordinance Aibango",
+      "file": "/documents/ordinance-ambazonian-independent-bailiff-non-governmental-organization-ordinance-aibango.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance-ambazonian-symbolism-and-decameroonization-ordinance",
+      "title": "Ordinance Ambazonian Symbolism And Decameroonization Ordinance",
+      "file": "/documents/ordinance-ambazonian-symbolism-and-decameroonization-ordinance.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance-ambazonization-ordinace-06-01",
+      "title": "Ordinance Ambazonization Ordinace 06 01",
+      "file": "/documents/ordinance-ambazonization-ordinace-06-01.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonia20alien20repatriation20ordinace200220052006",
+      "title": "Ordinance Ambazonia Alien Repatriation Ordinace 02 05 06",
+      "file": "/documents/ordinance20ambazonia20alien20repatriation20ordinace200220052006.pdf",
+      "year": "2006",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonia20civil20defence20force20ordinance",
+      "title": "Ordinance Ambazonia Civil Defence Force Ordinance",
+      "file": "/documents/ordinance20ambazonia20civil20defence20force20ordinance.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonia20decameroonization20ordinance20122023202005",
+      "title": "Ordinance Ambazonia Decameroonization Ordinance 12 23 05",
+      "file": "/documents/ordinance20ambazonia20decameroonization20ordinance20122023202005.pdf",
+      "year": "2020",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonian20government20and20parastatal20ordinance20agpo",
+      "title": "Ordinance Ambazonian Government And Parastatal Ordinance Agpo",
+      "file": "/documents/ordinance20ambazonian20government20and20parastatal20ordinance20agpo.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonian20independent20bailiff20non20governmental20organization2020ordinance20aibango",
+      "title": "Ordinance Ambazonian Independent Bailiff Non Governmental Organization Ordinance Aibango",
+      "file": "/documents/ordinance20ambazonian20independent20bailiff20non20governmental20organization2020ordinance20aibango.pdf",
+      "year": "2020",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonian20symbolism20and20decameroonization20ordinance",
+      "title": "Ordinance Ambazonian Symbolism And Decameroonization Ordinance",
+      "file": "/documents/ordinance20ambazonian20symbolism20and20decameroonization20ordinance.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20ambazonization20ordinace20062001",
+      "title": "Ordinance Ambazonization Ordinace 06 01",
+      "file": "/documents/ordinance20ambazonization20ordinace20062001.pdf",
+      "year": "2001",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20jepao20december2021202005",
+      "title": "Ordinance Jepao December 21 05",
+      "file": "/documents/ordinance20jepao20december2021202005.pdf",
+      "year": "2020",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20lempo20modus20operandi",
+      "title": "Ordinance Lempo Modus Operandi",
+      "file": "/documents/ordinance20lempo20modus20operandi.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20lempo20modus20operandi20ii",
+      "title": "Ordinance Lempo Modus Operandi Ii",
+      "file": "/documents/ordinance20lempo20modus20operandi20ii.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20lempo20notice20to20quit20i",
+      "title": "Ordinance Lempo Notice To Quit I",
+      "file": "/documents/ordinance20lempo20notice20to20quit20i.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20public20officers20replacement2020ordinance",
+      "title": "Ordinance Public Officers Replacement Ordinance",
+      "file": "/documents/ordinance20public20officers20replacement2020ordinance.pdf",
+      "year": "2020",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "ordinance20restoration20law20enforcement20proclamation20reslep",
+      "title": "Ordinance Restoration Law Enforcement Proclamation Reslep",
+      "file": "/documents/ordinance20restoration20law20enforcement20proclamation20reslep.pdf",
+      "year": null,
+      "category": "ordinance",
+      "relatedSections": [
+        "restoration"
+      ]
+    },
+    {
+      "id": "ordinance20united20nations20bakassi20accord2028implementation2920ordinance",
+      "title": "Ordinance United Nations Bakassi Accord 28implementation) Ordinance",
+      "file": "/documents/ordinance20united20nations20bakassi20accord2028implementation2920ordinance.pdf",
+      "year": "2028",
+      "category": "ordinance",
+      "relatedSections": []
+    },
+    {
+      "id": "proclamation20formalizing20the20independence20of20ambazonia2010-10-1990",
+      "title": "Proclamation Formalizing The Independence Of Ambazonia 10 10 1990",
+      "file": "/documents/proclamation20formalizing20the20independence20of20ambazonia2010-10-1990.pdf",
+      "year": "1990",
+      "category": "proclamation",
+      "relatedSections": []
+    },
+    {
+      "id": "republic20of20ambazonian20petition20at20the20un",
+      "title": "Republic Of Ambazonian Petition At The Un",
+      "file": "/documents/republic20of20ambazonian20petition20at20the20un.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "republic20of20ambazonias20letter20to20the20un",
+      "title": "Republic Of Ambazonias Letter To The Un",
+      "file": "/documents/republic20of20ambazonias20letter20to20the20un.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "requestg20for20assistance",
+      "title": "Requestg For Assistance",
+      "file": "/documents/requestg20for20assistance.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "roa20eastern20boundary20with20cameroon",
+      "title": "Roa Eastern Boundary With Cameroon",
+      "file": "/documents/roa20eastern20boundary20with20cameroon.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "roa20is20anchored20on20-restoration20law20no.2084-0120of204th20february201984",
+      "title": "Roa Is Anchored On Restoration Law No. 84 01 Of 4th February 1984",
+      "file": "/documents/roa20is20anchored20on20-restoration20law20no.2084-0120of204th20february201984.pdf",
+      "year": "2019",
+      "category": "legal",
+      "relatedSections": [
+        "restoration"
+      ]
+    },
+    {
+      "id": "southern20cameroons20independence20constition",
+      "title": "Southern Cameroons Independence Constition",
+      "file": "/documents/southern20cameroons20independence20constition.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "statement20made20by20uk20representative20at20the20959th20meeting20of20the20trusteeship20council",
+      "title": "Statement Made By Uk Representative At The 959th Meeting Of The Trusteeship Council",
+      "file": "/documents/statement20made20by20uk20representative20at20the20959th20meeting20of20the20trusteeship20council.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": [
+        "trusteeship"
+      ]
+    },
+    {
+      "id": "statement20of20treaties20and20international20agreements",
+      "title": "Statement Of Treaties And International Agreements",
+      "file": "/documents/statement20of20treaties20and20international20agreements.pdf",
+      "year": null,
+      "category": "international",
+      "relatedSections": [
+        "mandate",
+        "trusteeship"
+      ]
+    },
+    {
+      "id": "the20constitution20of20the20federal20republic20of20cameroon",
+      "title": "The Constitution Of The Federal Republic Of Cameroon",
+      "file": "/documents/the20constitution20of20the20federal20republic20of20cameroon.pdf",
+      "year": null,
+      "category": "constitutional",
+      "relatedSections": [
+        "plebiscite",
+        "federal"
+      ]
+    },
+    {
+      "id": "the20greentree20agreement20and20the20illegal20alteration20of20icj20judgment",
+      "title": "The Greentree Agreement And The Illegal Alteration Of Icj Judgment",
+      "file": "/documents/the20greentree20agreement20and20the20illegal20alteration20of20icj20judgment.pdf",
+      "year": null,
+      "category": "international",
+      "relatedSections": [
+        "mandate",
+        "trusteeship"
+      ]
+    },
+    {
+      "id": "the20most20sophisticated20slave20trade20deal20under20un20cover",
+      "title": "The Most Sophisticated Slave Trade Deal Under Un Cover",
+      "file": "/documents/the20most20sophisticated20slave20trade20deal20under20un20cover.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "the20new20social20order",
+      "title": "The New Social Order",
+      "file": "/documents/the20new20social20order.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20rebellion20of20ambazonia",
+      "title": "The Rebellion Of Ambazonia",
+      "file": "/documents/the20rebellion20of20ambazonia.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20republic20of20ambazonia20at20organisation20of20african20unity20june201991",
+      "title": "The Republic Of Ambazonia At Organisation Of African Unity June 1991",
+      "file": "/documents/the20republic20of20ambazonia20at20organisation20of20african20unity20june201991.pdf",
+      "year": "2019",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "the20republic20of20cameroons20constitution20as20amended20by20restoration20law2084200120of20feb.201984",
+      "title": "The Republic Of Cameroons Constitution As Amended By Restoration Law 84 01 Of Feb. 1984",
+      "file": "/documents/the20republic20of20cameroons20constitution20as20amended20by20restoration20law2084200120of20feb.201984.pdf",
+      "year": "2019",
+      "category": "constitutional",
+      "relatedSections": [
+        "plebiscite",
+        "federal"
+      ]
+    },
+    {
+      "id": "the20two20alternatives",
+      "title": "The Two Alternatives",
+      "file": "/documents/the20two20alternatives.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20two20alternatives20full20document",
+      "title": "The Two Alternatives Full Document",
+      "file": "/documents/the20two20alternatives20full20document.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20two20alternatives20part20120-federation20of20nigeria20and20southern20cameroons",
+      "title": "The Two Alternatives Part 1 Federation Of Nigeria And Southern Cameroons",
+      "file": "/documents/the20two20alternatives20part20120-federation20of20nigeria20and20southern20cameroons.pdf",
+      "year": "2012",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20two20alternatives20part20220-republic20of20cameroon20and20southern20cameroons",
+      "title": "The Two Alternatives Part 2 Republic Of Cameroon And Southern Cameroons",
+      "file": "/documents/the20two20alternatives20part20220-republic20of20cameroon20and20southern20cameroons.pdf",
+      "year": "2022",
+      "category": "historical",
+      "relatedSections": []
+    },
+    {
+      "id": "the20united20states20government20stand20on20southern20cameroons20declassified20by20muluh20mbuh202",
+      "title": "The United States Government Stand On Southern Cameroons Declassified By Muluh Mbuh 2",
+      "file": "/documents/the20united20states20government20stand20on20southern20cameroons20declassified20by20muluh20mbuh202.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "trusteeship20agreement20on20cameroons20under20united20kingdom20administration201947",
+      "title": "Trusteeship Agreement On Cameroons Under United Kingdom Administration 1947",
+      "file": "/documents/trusteeship20agreement20on20cameroons20under20united20kingdom20administration201947.pdf",
+      "year": "2019",
+      "category": "international",
+      "relatedSections": [
+        "trusteeship"
+      ]
+    },
+    {
+      "id": "un20gift20of20maps20to20paul20biya20on202020may202010",
+      "title": "Un Gift Of Maps To Paul Biya On May 10",
+      "file": "/documents/un20gift20of20maps20to20paul20biya20on202020may202010.pdf",
+      "year": "2020",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "un20legal20analysis20or20interpretation20of20article208520as20applied20to20british20cameroons202620others",
+      "title": "Un Legal Analysis Or Interpretation Of Article 85 As Applied To British Cameroons 26 Others",
+      "file": "/documents/un20legal20analysis20or20interpretation20of20article208520as20applied20to20british20cameroons202620others.pdf",
+      "year": "2026",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "un20legal20analysis20or20interpretation20of20article208520as20applied20to20british20cameroons20andamp;20others",
+      "title": "Un Legal Analysis Or Interpretation Of Article 85 As Applied To British Cameroons & Others",
+      "file": "/documents/un20legal20analysis20or20interpretation20of20article208520as20applied20to20british20cameroons20andamp;20others.pdf",
+      "year": null,
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "unccprc83d11342002",
+      "title": "Unccprc83d1134 02",
+      "file": "/documents/unccprc83d11342002.pdf",
+      "year": "2002",
+      "category": "un",
+      "relatedSections": []
+    },
+    {
+      "id": "us20state20dept20notes20on20ambazonia20interpleader20summons20at20icj",
+      "title": "Us State Dept Notes On Ambazonia Interpleader Summons At Icj",
+      "file": "/documents/us20state20dept20notes20on20ambazonia20interpleader20summons20at20icj.pdf",
+      "year": null,
+      "category": "historical",
+      "relatedSections": []
+    }
+  ]
+}

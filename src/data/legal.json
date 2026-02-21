@@ -1,0 +1,255 @@
+{
+  "instruments": [
+    {
+      "id": "un-charter-art1",
+      "title": "United Nations Charter — Article 1(2)",
+      "instrument_type": "charter",
+      "source": "UN",
+      "date": "1945-06-26",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "The UN Charter establishes self-determination of peoples as a fundamental purpose of the United Nations. Article 1(2) requires the development of friendly relations among nations based on respect for the principle of equal rights and self-determination of peoples.",
+      "relevance": "Provides the foundational international law basis for Ambazonia's claim to self-determination as a people with a distinct political history, legal system, and cultural identity under British trusteeship.",
+      "key_provisions": [
+        "Article 1(2): Self-determination as a UN purpose",
+        "Article 73: Sacred trust for Non-Self-Governing Territories",
+        "Chapter XI: Declaration Regarding Non-Self-Governing Territories"
+      ],
+      "tags": ["UN Charter", "self-determination", "1945", "foundational"]
+    },
+    {
+      "id": "un-resolution-1514",
+      "title": "UN General Assembly Resolution 1514 (XV) — Declaration on the Granting of Independence",
+      "instrument_type": "resolution",
+      "source": "UN",
+      "date": "1960-12-14",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "The Declaration on the Granting of Independence to Colonial Countries and Peoples affirms the right of all peoples to self-determination and states that inadequacy of political, economic, social or educational preparedness shall never serve as a pretext for delaying independence.",
+      "relevance": "Directly applicable to the Southern Cameroons as a Trust Territory under British administration. Establishes that the failure to offer independence as an option in the 1961 plebiscite was a violation of international norms.",
+      "key_provisions": [
+        "Para. 1: Subjugation of peoples is contrary to the UN Charter",
+        "Para. 2: All peoples have the right to self-determination",
+        "Para. 5: Immediate steps to transfer power to peoples of Trust Territories",
+        "Para. 6: Any attempt to disrupt national unity is incompatible with the Charter"
+      ],
+      "tags": ["Resolution 1514", "decolonisation", "independence", "1960", "self-determination"]
+    },
+    {
+      "id": "un-resolution-1608",
+      "title": "UN General Assembly Resolution 1608 (XV) — The Plebiscite",
+      "instrument_type": "resolution",
+      "source": "UN",
+      "date": "1961-04-21",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "Resolution 1608 authorised the 1961 plebiscite for the Southern Cameroons, providing only two options: union with Nigeria or union with the Francophone Republic of Cameroon. Independence as a separate state was excluded. The resolution stipulated that union with Cameroon would be on the basis of a federal arrangement.",
+      "relevance": "The legal basis of the 1961 plebiscite. Ambazonians argue that the exclusion of independence as an option violated Resolution 1514, and that the federal arrangement stipulated in the resolution was never honoured, voiding the plebiscite result as a basis for permanent union.",
+      "key_provisions": [
+        "Vote options: Nigeria or Francophone Cameroon",
+        "Federal arrangement required as condition of union",
+        "UN supervision of the plebiscite"
+      ],
+      "tags": ["Resolution 1608", "plebiscite", "1961", "federation condition", "self-determination"]
+    },
+    {
+      "id": "iccpr-art1",
+      "title": "International Covenant on Civil and Political Rights — Article 1",
+      "instrument_type": "treaty",
+      "source": "UN",
+      "date": "1966-12-16",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "Article 1 of the ICCPR provides that all peoples have the right of self-determination, by virtue of which they freely determine their political status and freely pursue their economic, social and cultural development. States Parties are obligated to promote this right.",
+      "relevance": "Cameroon is a State Party to the ICCPR. Ambazonians invoke Article 1 as directly applicable to their claim as a people with a distinct political identity whose self-determination was frustrated by the events of 1972 and the denial of their institutional rights.",
+      "key_provisions": [
+        "Article 1(1): Right of self-determination",
+        "Article 1(2): Peoples may dispose of their natural wealth freely",
+        "Article 1(3): State Party obligation to realise self-determination"
+      ],
+      "tags": ["ICCPR", "self-determination", "1966", "treaty", "civil rights"]
+    },
+    {
+      "id": "achpr-art20",
+      "title": "African Charter on Human and Peoples' Rights — Article 20",
+      "instrument_type": "treaty",
+      "source": "AU",
+      "date": "1981-06-27",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "Article 20 of the African Charter on Human and Peoples' Rights (Banjul Charter) guarantees all peoples the unquestionable and inalienable right to self-determination. It further provides that colonised or oppressed peoples have the right to free themselves from domination by any means recognised by the international community.",
+      "relevance": "Cameroon has ratified the African Charter. The Ambazonian claim invokes Article 20(2), which addresses peoples under oppression — arguing that systematic denial of Anglophone rights, militarisation, and the 1972 annexation constitute oppression warranting the right to self-determination.",
+      "key_provisions": [
+        "Article 20(1): Unquestionable right to self-determination",
+        "Article 20(2): Colonised or oppressed peoples' right to self-liberation",
+        "Article 20(3): States' duty to assist oppressed peoples"
+      ],
+      "tags": ["African Charter", "Banjul Charter", "Article 20", "self-determination", "oppression"]
+    },
+    {
+      "id": "foumban-agreement-1961",
+      "title": "Foumban Constitutional Conference Agreement (1961)",
+      "instrument_type": "agreement",
+      "source": "bilateral",
+      "date": "1961-07-01",
+      "jurisdiction": "domestic",
+      "significance": "primary",
+      "summary": "The Foumban Conference of July 1961 was convened to negotiate the constitutional terms under which the Southern Cameroons would join the Republic of Cameroon in a federation. The resulting federal constitution established two federated states with distinct legal systems, parliaments, and executive structures.",
+      "relevance": "The foundational constitutional compact governing the 1961 union. Ambazonian lawyers argue that the compact created binding obligations on the Cameroon Republic — including preservation of common law, Anglophone institutions, and federal autonomy — which were subsequently violated, triggering the right to remedial self-determination.",
+      "key_provisions": [
+        "Two-state federation: East Cameroon and West Cameroon",
+        "Preservation of Anglophone common law system",
+        "Separate legislature and executive for West Cameroon",
+        "Federal amendment process requiring consent of both states"
+      ],
+      "tags": ["Foumban", "federal compact", "1961", "constitution", "West Cameroon"]
+    },
+    {
+      "id": "vienna-convention-treaties",
+      "title": "Vienna Convention on the Law of Treaties (1969) — Articles 26 & 60",
+      "instrument_type": "treaty",
+      "source": "UN",
+      "date": "1969-05-23",
+      "jurisdiction": "international",
+      "significance": "secondary",
+      "summary": "The Vienna Convention codifies customary international law on treaties. Article 26 establishes pacta sunt servanda — every treaty in force is binding and must be performed in good faith. Article 60 provides for termination or suspension of a treaty following material breach.",
+      "relevance": "Applied to the Foumban Agreement: Cameroon's systematic breach of the federal compact — abolishing federation, imposing a unitary state, suppressing Anglophone institutions — constitutes a material breach under Article 60, entitling the Southern Cameroons to treat the compact as dissolved.",
+      "key_provisions": [
+        "Article 26: Pacta sunt servanda — treaties must be performed in good faith",
+        "Article 60: Material breach entitles the other party to terminate the treaty",
+        "Article 64: Void treaty arising from jus cogens violations"
+      ],
+      "tags": ["Vienna Convention", "pacta sunt servanda", "material breach", "treaties", "1969"]
+    },
+    {
+      "id": "remedial-secession-doctrine",
+      "title": "Doctrine of Remedial Secession",
+      "instrument_type": "legal-doctrine",
+      "source": "international",
+      "date": "2010-07-22",
+      "jurisdiction": "international",
+      "significance": "primary",
+      "summary": "The doctrine of remedial secession holds that, where a group is denied meaningful access to government and subject to serious human rights violations, self-determination may extend to secession as a remedy of last resort. The doctrine was affirmed by the International Court of Justice's Kosovo Advisory Opinion (2010), which held that unilateral declarations of independence are not prohibited by international law.",
+      "relevance": "The Ambazonian case advances a remedial secession argument: systematic exclusion from governance, suppression of Anglophone institutions, armed military occupation, and mass atrocities against civilians constitute the threshold conditions warranting recognition of an independent Ambazonia under international law.",
+      "key_provisions": [
+        "ICJ Kosovo Opinion (2010): Unilateral declarations of independence not prohibited",
+        "Canadian Supreme Court Quebec Reference (1998): Remedial secession doctrine",
+        "Threshold conditions: denial of internal self-determination + serious rights violations"
+      ],
+      "tags": ["remedial secession", "Kosovo", "ICJ", "self-determination", "international law", "2010"]
+    },
+    {
+      "id": "roa-constitution-2017-legal",
+      "title": "Constitution of the Federal Republic of Ambazonia (2017)",
+      "instrument_type": "constitution",
+      "source": "ROA",
+      "date": "2017-10-01",
+      "jurisdiction": "domestic",
+      "significance": "primary",
+      "summary": "The Constitution of the Federal Republic of Ambazonia establishes the sovereign legal order of the restored state. It defines the structure of government, fundamental rights, the rule of law, and the institutional architecture of the Republic. It is the supreme law of Ambazonia.",
+      "relevance": "Primary domestic legal instrument. Establishes constitutional legitimacy of the Interim Government and defines the legal framework within which all state acts — decrees, legislation, appointments — derive their authority.",
+      "key_provisions": [
+        "Sovereignty of the people",
+        "Federal republican structure",
+        "Fundamental rights and freedoms",
+        "Separation of powers: executive, legislative, judicial",
+        "Supremacy of the Constitution"
+      ],
+      "tags": ["constitution", "ROA", "2017", "sovereignty", "foundational law"]
+    }
+  ],
+
+  "proceedings": [
+    {
+      "id": "wgad-opinion-2019",
+      "case": "UN Working Group on Arbitrary Detention — Opinion No. 52/2019",
+      "year": "2019",
+      "jurisdiction": "UN Human Rights Mechanism",
+      "parties": "Sisiku Julius Ayuk Tabe and Nine Others v. Republic of Cameroon",
+      "outcome": "Detention declared arbitrary; immediate release and reparations demanded",
+      "summary": "The UN Working Group on Arbitrary Detention found that the detention of Sisiku Julius Ayuk Tabe and nine co-defendants was arbitrary, in violation of Articles 9, 10, and 11 of the Universal Declaration of Human Rights. The Working Group determined that the deprivation of liberty lacked legal basis and called on Cameroon to release the detainees immediately and provide reparations.",
+      "significance": "primary",
+      "instruments": ["un-charter-art1", "iccpr-art1"],
+      "tags": ["WGAD", "arbitrary detention", "2019", "Sisiku Ayuk Tabe", "UN"]
+    },
+    {
+      "id": "achpr-communication-2009",
+      "case": "African Commission on Human and Peoples' Rights — Communication 266/03",
+      "year": "2009",
+      "jurisdiction": "African Commission on Human and Peoples' Rights",
+      "parties": "Kevin Mgwanga Gunme and Others v. Republic of Cameroon",
+      "outcome": "Violation of Articles 19, 20, 21, 22 of the African Charter found",
+      "summary": "The African Commission on Human and Peoples' Rights found Cameroon in violation of multiple provisions of the African Charter, including Articles 19 (equality of peoples), 20 (self-determination), 21 (natural resources), and 22 (economic and social development). The Commission recognised the Southern Cameroons as a 'people' under the Charter and found that their rights had been systematically violated. Cameroon was directed to take constitutional and legislative measures to remedy the violations.",
+      "significance": "primary",
+      "instruments": ["achpr-art20", "iccpr-art1"],
+      "tags": ["ACHPR", "African Commission", "Communication 266/03", "2009", "Southern Cameroons"]
+    },
+    {
+      "id": "icj-kosovo-2010",
+      "case": "International Court of Justice — Accordance with International Law of the Unilateral Declaration of Independence in Respect of Kosovo (Advisory Opinion)",
+      "year": "2010",
+      "jurisdiction": "International Court of Justice",
+      "parties": "Advisory Proceedings initiated by UN General Assembly",
+      "outcome": "Unilateral declaration of independence held not to violate international law",
+      "summary": "The International Court of Justice, in an Advisory Opinion requested by the UN General Assembly, held that the unilateral declaration of independence of Kosovo did not violate international law. The Court found no general prohibition in international law against unilateral declarations of independence. The opinion is cited in the Ambazonian legal position as establishing that the October 2017 declaration of independence was not, of itself, internationally unlawful.",
+      "significance": "primary",
+      "instruments": ["remedial-secession-doctrine"],
+      "tags": ["ICJ", "Kosovo", "advisory opinion", "2010", "unilateral declaration"]
+    },
+    {
+      "id": "quebec-reference-1998",
+      "case": "Reference re Secession of Quebec",
+      "year": "1998",
+      "jurisdiction": "Supreme Court of Canada",
+      "parties": "Attorney General of Canada v. Attorney General of Quebec",
+      "outcome": "Remedial secession recognised in international law under threshold conditions",
+      "summary": "The Supreme Court of Canada articulated the doctrine of remedial secession in its advisory reference concerning Quebec. The Court held that where a people is blocked from exercising internal self-determination — including through oppression, denial of political rights, or systematic marginalisation — international law may support a right to external self-determination including secession as a last resort. The case is a foundational reference for the Ambazonian remedial secession argument.",
+      "significance": "primary",
+      "instruments": ["remedial-secession-doctrine", "iccpr-art1"],
+      "tags": ["Quebec Reference", "1998", "remedial secession", "Supreme Court of Canada", "self-determination"]
+    },
+    {
+      "id": "cameroon-military-tribunal-2019",
+      "case": "Cameroon Military Tribunal — Case No. TGI/LT/002/2019",
+      "year": "2019",
+      "jurisdiction": "Cameroon Military Tribunal, Yaoundé",
+      "parties": "Republic of Cameroon v. Sisiku Julius Ayuk Tabe and Nine Others",
+      "outcome": "Defendants convicted of terrorism, secession, and revolution; sentenced to life imprisonment",
+      "summary": "The Cameroon Military Tribunal convicted Sisiku Julius Ayuk Tabe and nine co-defendants on charges including terrorism, revolutionary acts, secession, and hostility against the state. The trial was conducted before a military tribunal despite the defendants being civilians — a jurisdiction challenged under international human rights law. The UN Working Group on Arbitrary Detention, UN Special Rapporteurs, and international human rights bodies have condemned the proceedings as lacking the impartiality and independence required by fair trial standards.",
+      "significance": "secondary",
+      "instruments": ["iccpr-art1", "achpr-art20"],
+      "tags": ["Military Tribunal", "Cameroon", "2019", "Sisiku Ayuk Tabe", "life imprisonment", "fair trial"]
+    }
+  ],
+
+  "principles": [
+    {
+      "id": "self-determination",
+      "title": "Right of Self-Determination",
+      "category": "foundational",
+      "description": "The right of all peoples to freely determine their political status and pursue their economic, social, and cultural development. Recognised in the UN Charter, ICCPR, ACHPR, and customary international law.",
+      "instruments": ["un-charter-art1", "iccpr-art1", "achpr-art20", "un-resolution-1514"]
+    },
+    {
+      "id": "pacta-sunt-servanda",
+      "title": "Pacta Sunt Servanda",
+      "category": "treaty-law",
+      "description": "Every treaty in force is binding on the parties and must be performed by them in good faith. A foundational principle of international law, codified in the Vienna Convention on the Law of Treaties.",
+      "instruments": ["vienna-convention-treaties", "foumban-agreement-1961"]
+    },
+    {
+      "id": "remedial-secession",
+      "title": "Remedial Secession",
+      "category": "self-determination",
+      "description": "Where a people is denied internal self-determination and subjected to serious human rights violations, international law may recognise a right to secession as a remedy of last resort.",
+      "instruments": ["remedial-secession-doctrine", "achpr-art20", "iccpr-art1"]
+    },
+    {
+      "id": "common-law-system",
+      "title": "Preservation of Common Law",
+      "category": "domestic",
+      "description": "The common law system inherited from British administration is a constitutive element of Anglophone Cameroonian identity and was explicitly preserved by the 1961 federal compact. Its systematic erosion constitutes a breach of the foundational constitutional agreement.",
+      "instruments": ["foumban-agreement-1961", "roa-constitution-2017-legal"]
+    }
+  ]
+}

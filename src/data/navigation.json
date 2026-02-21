@@ -1,0 +1,70 @@
+{
+  "brand": {
+    "name": "Republic of Ambazonia",
+    "abbreviation": "ROA",
+    "tagline": "Sovereign Digital Knowledge Platform"
+  },
+  "primaryNav": [
+    {
+      "id": "home",
+      "label": "Home",
+      "path": "/",
+      "icon": "home"
+    },
+    {
+      "id": "governance",
+      "label": "Governance",
+      "path": "/governance",
+      "icon": "landmark",
+      "children": [
+        { "label": "Executive", "path": "/governance/executive" },
+        { "label": "Legislative", "path": "/governance/legislative" },
+        { "label": "Judiciary", "path": "/governance/judiciary" },
+        { "label": "Decrees & Orders", "path": "/governance/decrees" }
+      ]
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "path": "/documents",
+      "icon": "file-text",
+      "children": [
+        { "label": "Constitution", "path": "/documents/constitution" },
+        { "label": "Proclamations", "path": "/documents/proclamations" },
+        { "label": "Treaties", "path": "/documents/treaties" },
+        { "label": "UN Submissions", "path": "/documents/un-submissions" }
+      ]
+    },
+    {
+      "id": "history",
+      "label": "History",
+      "path": "/history",
+      "icon": "book-open",
+      "children": [
+        { "label": "Continuity of Statehood", "path": "/history/continuity" },
+        { "label": "Timeline", "path": "/history/timeline" },
+        { "label": "Key Figures", "path": "/history/figures" }
+      ]
+    },
+    {
+      "id": "legal",
+      "label": "Legal",
+      "path": "/legal",
+      "icon": "scale",
+      "children": [
+        { "label": "Judicial Proceedings", "path": "/legal/proceedings" }
+      ]
+    },
+    {
+      "id": "tourism",
+      "label": "Territory",
+      "path": "/tourism",
+      "icon": "map"
+    }
+  ],
+  "footerNav": [
+    { "label": "Legal Notice", "path": "/legal" },
+    { "label": "Contact", "path": "/contact" },
+    { "label": "Archive", "path": "/archive" }
+  ]
+}

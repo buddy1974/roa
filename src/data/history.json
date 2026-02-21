@@ -1,0 +1,195 @@
+{
+  "continuity": [
+    {
+      "id": "ambas-bay",
+      "title": "Early Political Foundations and the Ambas Bay Settlement (1858–1887)",
+      "period": "1858–1887",
+      "era": "pre-colonial",
+      "content": "In 1858, Alfred Saker of the English Baptist Missionary Society established the Ambas Bay Settlement with its administrative capital at Victoria (present-day Limbe). The settlement was placed under the protection of the British Crown and administered through the British Consul at Fernando Po. English common law, English language, and British institutional culture were established as the governing framework of the territory — foundations that persist to the present day. The indigenous chiefs of the Bakweri and neighbouring peoples conducted their affairs with British administrators, cementing an Anglo-Cameroonian political identity distinct from the French-speaking interior.",
+      "significance": "primary",
+      "tags": ["Ambas Bay", "Victoria", "Alfred Saker", "British administration", "1858"]
+    },
+    {
+      "id": "german-period",
+      "title": "German Kamerun Period (1884–1916)",
+      "period": "1884–1916",
+      "era": "colonial",
+      "content": "In July 1884, Germany declared the protectorate of Kamerun following the Treaty of Protection signed with Douala chiefs. The entirety of present-day Ambazonia was incorporated into German Kamerun. German administration introduced plantation agriculture, road infrastructure, and a colonial legal regime. The territory experienced significant economic extraction, particularly on the fertile slopes of Mount Cameroon. With the outbreak of World War I and the Allied invasion of Kamerun in 1914–1916, German administration collapsed. The territory was subsequently partitioned between Britain and France under the Picot-Melvil Line, creating the administrative and cultural division that underpins the Anglophone-Francophone distinction to this day.",
+      "significance": "primary",
+      "tags": ["German Kamerun", "protectorate", "1884", "partition", "World War I"]
+    },
+    {
+      "id": "mandate",
+      "title": "League of Nations Mandate (1922–1946)",
+      "period": "1922–1946",
+      "era": "mandate",
+      "content": "Following the Treaty of Versailles (1919), the former German colony was formally divided. The British portion — comprising the present territory of Ambazonia — was designated a Class B Mandate under the League of Nations. Britain administered it in two non-contiguous zones: the Northern Cameroons (adjacent to Nigeria's northern provinces) and the Southern Cameroons (attached administratively to Nigeria's eastern provinces). Under the Mandate system, Britain held a sacred trust obligation to develop the territory towards self-governance. The Southern Cameroons was governed through indirect rule, with traditional fondoms and chieftaincies playing central roles. English language education was established through mission schools, and common law institutions were consolidated.",
+      "significance": "primary",
+      "tags": ["League of Nations", "Mandate", "Class B", "British administration", "1922"]
+    },
+    {
+      "id": "trusteeship",
+      "title": "United Nations Trust Territory (1946–1961)",
+      "period": "1946–1961",
+      "era": "trusteeship",
+      "content": "In 1946, the League Mandate transitioned into a United Nations Trust Territory, still administered by Britain. Under the UN Charter, Britain was obligated to develop the territory towards self-government or independence, with the UN Trusteeship Council exercising oversight. The Southern Cameroons developed distinct political institutions: a House of Assembly was established at Buea in 1954, and the territory achieved quasi-federal status with its own premier and cabinet. The Southern Cameroons People's Conference and KNDP (Kamerun National Democratic Party) debated three options for the future: independence as a separate state, union with Nigeria, or union with the Francophone Republic of Cameroon. The UN-mandated plebiscite of 1961 became the decisive constitutional moment.",
+      "significance": "primary",
+      "tags": ["UN Trust Territory", "1946", "Buea", "House of Assembly", "self-government"]
+    },
+    {
+      "id": "plebiscite",
+      "title": "The 1961 Plebiscite",
+      "period": "1961",
+      "era": "federation",
+      "content": "On 11 February 1961, under United Nations supervision and pursuant to UN General Assembly Resolution 1608 (XV), the people of the Southern Cameroons voted in a plebiscite to determine their political future. The ballot offered two choices: union with Nigeria or union with the Republic of Cameroon. A third option — independence as a separate state — was deliberately excluded by the United Nations, a decision contested to this day as a fundamental procedural injustice. The result was 70.49% in favour of joining the Republic of Cameroon, on the explicit understanding that a federal arrangement would be established preserving Anglophone institutions, law, and autonomy. The terms of this arrangement were to be negotiated at the Foumban Constitutional Conference in July 1961.",
+      "significance": "primary",
+      "tags": ["plebiscite", "1961", "UN Resolution 1608", "February 11", "self-determination"]
+    },
+    {
+      "id": "federal",
+      "title": "Federal Constitutional Arrangement (1961–1972)",
+      "period": "1961–1972",
+      "era": "federation",
+      "content": "On 1 October 1961, the Southern Cameroons formally joined the Republic of Cameroon to form the Federal Republic of Cameroon — a two-state federation. The federal compact was negotiated at the Foumban Conference under terms widely regarded as having been imposed rather than freely negotiated: Southern Cameroons delegates arrived without legal counsel and faced a draft constitution prepared unilaterally by Yaoundé. The federation nonetheless established West Cameroon as a constituent state with its own parliament, premier, and anglophone legal system. In practice, the federal government systematically eroded Anglophone autonomy — merging civil services, imposing French administrative practices, and concentrating power in Yaoundé. The promise of federalism was progressively hollowed out over a decade.",
+      "significance": "primary",
+      "tags": ["federation", "1961", "Federal Republic", "West Cameroon", "Foumban"]
+    },
+    {
+      "id": "referendum-1972",
+      "title": "1972 Constitutional Referendum",
+      "period": "1972",
+      "era": "unitary",
+      "content": "In 1972, a national referendum was organised by President Ahmadou Ahidjo to abolish the two-state federation and replace it with a unitary Republic of Cameroon. The referendum was conducted without the constitutionally mandated consent of the constituent states and in conditions that precluded genuine deliberation or opposition. The Anglophone West Cameroon legislature, whose agreement was constitutionally required to amend the federal compact, was not consulted. Ambazonian constitutionalists and international lawyers have consistently argued that the 1972 act was unconstitutional, void ab initio, and represented an unlawful annexation of the Southern Cameroons. The subsequent imposition of a unitary state accelerated assimilation policies, marginalisation of common law, and suppression of Anglophone political identity.",
+      "significance": "primary",
+      "tags": ["1972", "referendum", "unitary state", "annexation", "Ahidjo"]
+    },
+    {
+      "id": "restoration",
+      "title": "The Restoration Argument",
+      "period": "2017–present",
+      "era": "restoration",
+      "content": "The contemporary position advanced by the Interim Government of the Federal Republic of Ambazonia holds that the 1972 referendum was constitutionally void, that the federal compact of 1961 was never legitimately dissolved, and that the Southern Cameroons therefore retains its legal personality as a distinct political entity entitled to self-determination. On 1 October 2017, following the systematic repression of Anglophone professionals, lawyers, and teachers who had demanded restoration of their institutions, the Interim Government proclaimed the independence of the Federal Republic of Ambazonia. This proclamation is grounded in the right of self-determination (UN Charter Art. 1(2), ICCPR Art. 1, ACHPR Art. 20), the breach of the 1961 federal compact, and the doctrine of remedial secession under international law.",
+      "significance": "primary",
+      "tags": ["restoration", "2017", "self-determination", "international law", "remedial secession"]
+    }
+  ],
+
+  "timeline": [
+    {
+      "id": "tl-1858",
+      "year": "1858",
+      "title": "Ambas Bay Settlement Established",
+      "summary": "Alfred Saker founds Victoria under British protection.",
+      "era": "pre-colonial",
+      "category": "political"
+    },
+    {
+      "id": "tl-1884",
+      "year": "1884",
+      "title": "German Protectorate Declared",
+      "summary": "Germany declares the Protectorate of Kamerun.",
+      "era": "colonial",
+      "category": "political"
+    },
+    {
+      "id": "tl-1916",
+      "year": "1916",
+      "title": "British Administration Begins",
+      "summary": "Following Allied victory, Southern Cameroons comes under British control.",
+      "era": "colonial",
+      "category": "military"
+    },
+    {
+      "id": "tl-1922",
+      "year": "1922",
+      "title": "League of Nations Mandate",
+      "summary": "Treaty of Versailles formalises British administration as a Class B Mandate.",
+      "era": "mandate",
+      "category": "legal"
+    },
+    {
+      "id": "tl-1946",
+      "year": "1946",
+      "title": "UN Trust Territory",
+      "summary": "Mandate converts to UN Trust Territory; self-governance obligation formalised.",
+      "era": "trusteeship",
+      "category": "legal"
+    },
+    {
+      "id": "tl-1954",
+      "year": "1954",
+      "title": "Southern Cameroons House of Assembly",
+      "summary": "Buea becomes capital of quasi-federal Southern Cameroons with its own legislature.",
+      "era": "trusteeship",
+      "category": "political"
+    },
+    {
+      "id": "tl-1961-02",
+      "year": "Feb 1961",
+      "title": "UN Plebiscite",
+      "summary": "70.49% vote to join Republic of Cameroon in a federal arrangement.",
+      "era": "federation",
+      "category": "political",
+      "highlight": true
+    },
+    {
+      "id": "tl-1961-10",
+      "year": "Oct 1961",
+      "title": "Federal Republic of Cameroon Formed",
+      "summary": "Southern Cameroons joins as West Cameroon, a constituent federal state.",
+      "era": "federation",
+      "category": "political",
+      "highlight": true
+    },
+    {
+      "id": "tl-1972",
+      "year": "1972",
+      "title": "Federation Abolished",
+      "summary": "Ahidjo's referendum replaces federation with a unitary state, without Anglophone consent.",
+      "era": "unitary",
+      "category": "legal",
+      "highlight": true
+    },
+    {
+      "id": "tl-1984",
+      "year": "1984",
+      "title": "Name Change to Republic of Cameroon",
+      "summary": "Biya reverts to pre-federation name, symbolically erasing the federal compact.",
+      "era": "unitary",
+      "category": "political"
+    },
+    {
+      "id": "tl-2016",
+      "year": "2016",
+      "title": "Anglophone Crisis — Lawyers and Teachers Strike",
+      "summary": "Civil society responds to imposition of French law and language in Anglophone institutions.",
+      "era": "restoration",
+      "category": "civil"
+    },
+    {
+      "id": "tl-2017-01",
+      "year": "Jan 2017",
+      "title": "UN Petition Filed",
+      "summary": "Anglophone civil society petitions the UN Secretary-General.",
+      "era": "restoration",
+      "category": "diplomatic"
+    },
+    {
+      "id": "tl-2017-10",
+      "year": "1 Oct 2017",
+      "title": "Declaration of Independence",
+      "summary": "Interim Government proclaims the Federal Republic of Ambazonia.",
+      "era": "restoration",
+      "category": "political",
+      "highlight": true
+    },
+    {
+      "id": "tl-2018",
+      "year": "2018",
+      "title": "Interim Government Constituted",
+      "summary": "Formal executive decree establishes structure and mandate of the Interim Government.",
+      "era": "restoration",
+      "category": "political"
+    }
+  ]
+}

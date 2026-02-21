@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "id": "governance",
+      "title": "Governance",
+      "description": "Institutional structures, executive authority, legislative acts, and judicial records of the Federal Republic of Ambazonia.",
+      "priority": 1
+    },
+    {
+      "id": "executive",
+      "title": "Executive",
+      "description": "Decrees, orders, appointments, and directives issued by the Interim Government of Ambazonia.",
+      "priority": 2
+    },
+    {
+      "id": "counties",
+      "title": "Counties",
+      "description": "Administrative divisions, local governance structures, and county-level records of the Ambazonian territory.",
+      "priority": 3
+    },
+    {
+      "id": "sovereignty",
+      "title": "Sovereignty",
+      "description": "Primary documents, proclamations, and legal instruments asserting the sovereign status of the Federal Republic of Ambazonia.",
+      "priority": 4
+    },
+    {
+      "id": "legal-framework",
+      "title": "Legal Framework",
+      "description": "Constitutional texts, statutory instruments, legal opinions, and the body of Ambazonian law.",
+      "priority": 5
+    },
+    {
+      "id": "diplomacy",
+      "title": "Diplomacy",
+      "description": "International correspondence, UN submissions, treaty records, and diplomatic engagements of the Republic.",
+      "priority": 6
+    },
+    {
+      "id": "national-identity",
+      "title": "National Identity",
+      "description": "Symbols, culture, language, and the defining characteristics of Ambazonian national identity.",
+      "priority": 7
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "description": "Historical records spanning the colonial period, federation era, unitary annexation, and the restoration of independence.",
+      "priority": 8
+    },
+    {
+      "id": "tourism",
+      "title": "Tourism",
+      "description": "Geographic, ecological, and cultural knowledge of the Ambazonian homeland — its regions, landscapes, and heritage sites.",
+      "priority": 9
+    }
+  ],
+  "documentTypes": [
+    { "id": "constitution",  "label": "Constitutional",  "color": "gold"  },
+    { "id": "proclamation",  "label": "Proclamation",    "color": "navy"  },
+    { "id": "decree",        "label": "Decree",          "color": "slate" },
+    { "id": "treaty",        "label": "Treaty",          "color": "olive" },
+    { "id": "resolution",    "label": "Resolution",      "color": "amber" },
+    { "id": "submission",    "label": "UN Submission",   "color": "blue"  },
+    { "id": "communique",    "label": "Communiqué",      "color": "stone" },
+    { "id": "report",        "label": "Report",          "color": "gray"  }
+  ],
+  "branches": [
+    { "id": "executive",      "label": "Executive Branch"      },
+    { "id": "legislative",    "label": "Legislative Branch"    },
+    { "id": "judiciary",      "label": "Judicial Branch"       },
+    { "id": "international",  "label": "International Affairs" }
+  ],
+  "regions": [
+    { "id": "sw",       "label": "Southern Region" },
+    { "id": "nw",       "label": "Northern Region" },
+    { "id": "national", "label": "National"          }
+  ],
+  "eras": [
+    { "id": "colonial",    "label": "Colonial Period",  "range": "1884–1961"    },
+    { "id": "federation",  "label": "Federal Period",   "range": "1961–1972"    },
+    { "id": "unitary",     "label": "Unitary State",    "range": "1972–2017"    },
+    { "id": "restoration", "label": "Restoration Era",  "range": "2017–present" }
+  ],
+  "languages": [
+    { "id": "en", "label": "English" },
+    { "id": "fr", "label": "French"  }
+  ]
+}

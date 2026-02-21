@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Home</title>
+		<description><![CDATA[]]></description>
+		<link>https://ambazonia.org/en/2-uncategorised</link>
+		<lastBuildDate>Sat, 14 Feb 2026 15:35:31 +0000</lastBuildDate>
+		<generator>Joomla! - Open Source Content Management</generator>
+		<atom:link rel="self" type="application/rss+xml" href="https://ambazonia.org/en/2-uncategorised?format=feed&amp;type=rss"/>
+		<language>en-gb</language>
+		<item>
+			<title>Attorney General</title>
+			<link>https://ambazonia.org/en/gov/judiciary/attorney-general</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/gov/judiciary/attorney-general</guid>
+			<description><![CDATA[<p>Page under construction</p>]]></description>
+			<category>Uncategorised</category>
+			<pubDate>Sat, 19 May 2018 00:44:03 +0000</pubDate>
+		</item>
+		<item>
+			<title>Government</title>
+			<link>https://ambazonia.org/en/2-uncategorised/232-government</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/2-uncategorised/232-government</guid>
+			<description><![CDATA[]]></description>
+			<category>Uncategorised</category>
+			<pubDate>Thu, 17 May 2018 14:03:14 +0000</pubDate>
+		</item>
+		<item>
+			<title>General Forms And Appeals</title>
+			<link>https://ambazonia.org/en/2-uncategorised/231-general-forms</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/2-uncategorised/231-general-forms</guid>
+			<description><![CDATA[<p>Currently unavailable. Please come back later.</p>]]></description>
+			<category>Uncategorised</category>
+			<pubDate>Sat, 12 May 2018 17:04:36 +0000</pubDate>
+		</item>
+		<item>
+			<title>National Anthem</title>
+			<link>https://ambazonia.org/en/about/the-national-anthem</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/about/the-national-anthem</guid>
+			<description><![CDATA[<h1>Hail Ambazonia, Land of Glory</h1>
+<p><audio src="https://ambazonia.org/images/official/audio/ambazonian-national-anthem.mp3" controls="controls">
+<p>HAIL HAIL HAIL THIS Land of Glory<br /> We the Ambazonians pledge your loyalty</p>
+<p>Praise the Son our Saviour who granted us the freedom,</p>
+<p>Allegiance to the heroes who bore the land with their blood,</p>
+<p>Glory to glory we rise and never to fall,</p>
+<p>Here in our nation flowing with milk and honey,<br /> Glory, glory, glory to the father,</p>
+<p>For making you a nation a joy forevermore.</p>
+<p>Ambazonia, land of freedom you shall live in plenty meeting our needs,</p>
+<p>And your children shall be like the stars above,</p>
+<p>The Most High God be the Watchman of this Nation.</p>
+<p>Ambazonia, land of freedom you shall live in plenty meeting our needs,</p>
+<p>And your children shall be like the stars above,</p>
+<p>The Most High God be the Watchman of this Nation.</p></audio></p>]]></description>
+			<category>Uncategorised</category>
+			<pubDate>Thu, 26 Apr 2018 23:56:39 +0000</pubDate>
+		</item>
+	</channel>
+</rss>

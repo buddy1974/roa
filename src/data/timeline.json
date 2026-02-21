@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "year": 1858,
+      "title": "Ambas Bay Settlement Founded",
+      "description": "Alfred Saker establishes the Ambas Bay Settlement with capital at Victoria, marking the first formal British presence in the territory.",
+      "relatedDocs": []
+    },
+    {
+      "year": 1884,
+      "title": "German Protectorate Declared",
+      "description": "Germany declares Kamerun a protectorate under the Treaty of Protection with Douala chiefs, initiating colonial administration over the territory.",
+      "relatedDocs": []
+    },
+    {
+      "year": 1916,
+      "title": "Partition of Kamerun",
+      "description": "Anglo-French forces defeat Germany. The territory is partitioned by the Picot-Milner Agreement into British and French spheres of administration.",
+      "relatedDocs": []
+    },
+    {
+      "year": 1922,
+      "title": "League of Nations Mandate",
+      "description": "British Cameroons becomes a mandated territory under the League of Nations, administered as part of British Nigeria under a Class B mandate.",
+      "relatedDocs": []
+    },
+    {
+      "year": 1946,
+      "title": "UN Trusteeship Agreement",
+      "description": "Southern British Cameroons becomes a United Nations Trust Territory under United Kingdom administration, establishing international obligations and a framework for self-determination.",
+      "relatedDocs": [
+        "trusteeship20agreement20on20cameroons20under20united20kingdom20administration201947",
+        "statement20of20treaties20and20international20agreements"
+      ]
+    },
+    {
+      "year": 1961,
+      "title": "UN-Supervised Plebiscite",
+      "description": "A United Nations-supervised plebiscite results in the southern zone voting for federation with the Republic of Cameroun. The Southern Cameroons Independence Constitution provides the constitutional framework for this union.",
+      "relatedDocs": [
+        "southern20cameroons20independence20constition",
+        "constitution20of20the20federal20republic20of20cameroun"
+      ]
+    },
+    {
+      "year": 1972,
+      "title": "Federal Structure Dissolved",
+      "description": "A referendum replaces the Federal Republic of Cameroon with a unitary state, the Republic of Cameroon. The constitutional arrangement agreed at federation is thereby abrogated.",
+      "relatedDocs": [
+        "roa20is20anchored20on20-restoration20law20no.2084-0120of204th20february201984",
+        "the20republic20of20cameroons20constitution20as20amended20by20restoration20law2084200120of20feb.201984"
+      ]
+    },
+    {
+      "year": 1985,
+      "title": "Bamenda High Court Proceedings",
+      "description": "Legal challenges before the Bamenda High Court assert the constitutional continuity of Southern Cameroons statehood and contest the legality of the 1972 dissolution of the federal structure.",
+      "relatedDocs": [
+        "hcb28-9220retyped",
+        "hcb28-9220le20messager"
+      ]
+    }
+  ]
+}

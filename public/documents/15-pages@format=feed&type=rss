@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Home</title>
+		<description><![CDATA[]]></description>
+		<link>https://ambazonia.org/en/15-pages</link>
+		<lastBuildDate>Sat, 14 Feb 2026 15:36:33 +0000</lastBuildDate>
+		<generator>Joomla! - Open Source Content Management</generator>
+		<atom:link rel="self" type="application/rss+xml" href="https://ambazonia.org/en/15-pages?format=feed&amp;type=rss"/>
+		<language>en-gb</language>
+		<item>
+			<title>About Us</title>
+			<link>https://ambazonia.org/en/15-pages/31-about-us</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/15-pages/31-about-us</guid>
+			<description><![CDATA[[heading size="h1" style="uk-article-title"]About Us[/heading]
+
+<p>
+  Gravity was founded in 1963 to provide students with excellent academic programs and a nurturing environment with close student-teacher relationships. Gravity is a private yet affordable elementary school offering a stimulating curriculum and a supportive environment to ensure our students experience success every day.</p> 
+
+<p>
+  We Accept applications from prospective parents throughout the year and those interested are encouraged to contact the school by way of telephone or e-mail by using the contact form to get information. In order to gain more insight into our program, parents should attend.
+</p>
+
+[block_highlight align="right"]Over the years, we’ve been able to build a reputation as one of the best independent elementary schools and we are still the best.[/block_highlight]
+<p>
+  Over the years, we’ve been able to build a reputation as one of the best independent elementary schools. We understand the importance of putting students in the right environment for academic success. Accepts applications from prospective parents throughout the year and those interested are encouraged to contact the school by way of telephone or e-mail by using the contact form to get information. We Accept applications from prospective parents throughout the year and those interested are encouraged to contact the school by way of telephone or e-mail by using the contact form to get information. In order to gain more insight into our program.
+</p>
+
+[divider/]
+[line_break/]
+
+[grid]
+
+[column size="1-3"]
+[heading size="h3" style="uk-module-title"][highlight]Our [/highlight] beliefs[/heading]
+[image style="uk-border-rounded" src="https://ambazonia.org/images/demo/default/content/content-4.jpg" alt="Our mission" width="275" height="183"/]
+<p>
+  Do not dwell in the past, do not dream of the future, concentrate the mind on the present.
+</p>
+[button style="secondary uk-button-small" href="https://ambazonia.org/#" target="_self"]Read more[/button]
+[/column]
+
+[column size="1-3"]
+[heading size="h3" style="uk-module-title"][highlight]Our [/highlight] mission[/heading]
+[image style="uk-border-rounded" src="https://ambazonia.org/images/demo/default/content/content-5.jpg" alt="Our mission" width="275" height="183"/]
+<p>
+  Do not dwell in the past, do not dream of the future, concentrate the mind on the present.
+</p>
+[button style="secondary uk-button-small" href="https://ambazonia.org/#" target="_self"]Read more[/button]
+[/column]
+
+[column size="1-3"]
+[heading size="h3" style="uk-module-title"][highlight]Our [/highlight] vision[/heading]
+[image style="uk-border-rounded" src="https://ambazonia.org/images/demo/default/content/content-6.jpg" alt="Our vision" width="275" height="183"/]
+<p>
+  Do not dream of the future, concentrate the mind on the present moment.
+</p>
+[button style="secondary uk-button-small" href="https://ambazonia.org/#" target="_self"]Read more[/button]
+[/column]
+
+[/grid]]]></description>
+			<category>Pages</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>Our Staff - Basic</title>
+			<link>https://ambazonia.org/en/15-pages/32-our-staff-basic</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/15-pages/32-our-staff-basic</guid>
+			<description><![CDATA[[heading size="h3" style="uk-module-title"]Leadership Team[/heading]
+
+<p>The homelike quality of our school contributes to a relaxed, focused experience for the child. Our indoor classroom activities are placed on open shelves for selection as interest and readiness inspires the child. Our outdoor environment offers a beautiful developed playground with manipulatives, tricycles, pets, and gardens.</p>
+[line_break/]
+
+[grid]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Jona Vichosky" subtitle="Principal Head" src="https://ambazonia.org/images/demo/avatar/team-1.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Israel Carter" subtitle="Deputy Principal" src="https://ambazonia.org/images/demo/avatar/team-2.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Sharon Berry" subtitle="Teacher" src="https://ambazonia.org/images/demo/avatar/team-3.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[/grid]
+
+[line_break/]
+[text align="center"]
+<img style="margin-bottom: -23px" src="https://ambazonia.org/images/demo/avatar/team-all.png" alt="Team" width="607" height="429">
+[divider/]
+[blockquote author="Charles Doughnut"]Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers <strong>you cannot be successful</strong> or happy.[/blockquote]
+[/text]
+
+[line_break/]
+[divider/]
+[line_break/]
+
+[heading size="h3" style="uk-module-title"]Teaching Team[/heading]
+
+<p>The homelike quality of our school contributes to a relaxed, focused experience for the child. Our indoor classroom activities are placed on open shelves for selection as interest and readiness inspires the child. Our outdoor environment offers a beautiful developed playground with manipulatives, tricycles, pets, and gardens.</p>
+[line_break/]
+
+[grid]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Kerry Clayton" subtitle="Head Maths Teacher" src="https://ambazonia.org/images/demo/avatar/team-4.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Miguel	Welch" subtitle="Teacher" src="https://ambazonia.org/images/demo/avatar/team-5.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Yvonne	Mason" subtitle="Teacher" src="https://ambazonia.org/images/demo/avatar/team-6.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Steven	Leonard" subtitle="Teacher" src="https://ambazonia.org/images/demo/avatar/team-7.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[column responsive small="1-1" medium="1-2" large="1-3"]
+[card title="Bridget Greene" subtitle="Teacher" src="https://ambazonia.org/images/demo/avatar/team-8.jpg"]
+[card_social_icons style=""]
+[icon_button icon="icon-facebook" url="https://web.facebook.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-twitter" url="https://twitter.com/arrowthemes" target="_blank"][/icon_button]
+[icon_button icon="icon-envelope-o" url="mailto:hello&#64;gravity.edu" target="_blank"][/icon_button]
+[/card_social_icons]
+[/card]
+[/column]
+
+[/grid]]]></description>
+			<category>Pages</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>Testimonials</title>
+			<link>https://ambazonia.org/en/15-pages/34-testimonials</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/15-pages/34-testimonials</guid>
+			<description><![CDATA[<p>Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. Never be bullied into silence. Never allow yourself to be made a victim. Accept no one's definition of your life; define yourself. Don't go around saying the world owes you a living. The world owes you nothing. It was here first. If you don't like something, change it. If you can't change it, change your attitude. Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.</p>
+
+[divider/]
+
+[testimonial author="John Doe" title="Head of sales, Sandal" avatar="images/demo/avatar/client-3-thumb.png" icon="icon-bullhorn"]
+Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. <strong>You are what you are.</strong> Accept no one's definition of your life; define yourself.[/testimonial]
+
+[line_break/]
+[divider/]
+[testimonial author="Jane Doe" title="Marketing Director, Sandal" avatar="images/demo/avatar/client-2-thumb.png" icon="icon-trophy"]
+Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers <strong>you cannot be successful</strong> or happy.[/testimonial]
+
+[line_break/]
+[divider/]
+
+[blockquote author="Tony Fadell"]If you can't change it, change your attitude. Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.[/blockquote]
+
+[line_break/]
+
+[heading size="h3" style="uk-module-title"]Blockquotes in Columns[/heading]
+<p>Never allow yourself to be made a victim. Accept no one's definition of your life; define yourself. Don't go around saying the world owes you a living. The world owes you nothing. It was here first. If you don't like something, change it. If you can't change it, change your attitude. Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.</p>
+[line_break/]
+
+[grid]
+
+[column size="1-2"]
+[blockquote author="Alice Doe"]The world owes you nothing. It was here first. If you don't like something, change it. If you can't change it, <strong>change your attitude.</strong>[/blockquote]
+[/column]
+
+[column size="1-2"]
+[blockquote author="John Doe"]It is possible for you to do whatever you choose, if you first get to know who you are and are willing to work with a power that is greater than ourselves to do it.[/blockquote]
+[/column]
+[/grid]
+
+[line_break/]
+[line_break/]
+
+[text align="center"]
+[heading size="h3" style="uk-module-title-alt"]Blockquotes in Slides[/heading]
+[/text]
+
+[line_break/]
+
+[slideshow style="scroller" autoplay="true" animation="scroll" transition_duration="500" autoplay_interval="10000" kenburns="false"]
+
+[slide]
+[testimonial author="Gary Long" title="CEO" avatar="images/demo/avatar/client-1-thumb.png" icon="icon-sl-bubbles"]Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers you cannot be successful or happy.[/testimonial]
+[/slide]
+
+[slide]
+[testimonial author="Lori Carroll" title="Chief Editor" avatar="images/demo/avatar/client-2-thumb.png" icon="icon-sl-bubbles"]Do not dream of the future, concentrate the mind on the present moment. Dream big. Go forward Never allow yourself to be made a victim. Accept no one's definition.[/testimonial]
+[/slide]
+
+[slide]
+[testimonial author="Paul Morgan" title="Creative Designer" avatar="images/demo/avatar/client-3-thumb.png" icon="icon-sl-bubbles"]Everything should be as simple as it is, but not simpler; Believe that life is worth living and your belief will help create the fact. We help your ideas come to life.[/testimonial]
+[/slide]
+
+[slide_nav align="center"]
+  [slide_nav_item order="0"/]
+  [slide_nav_item order="1"/]
+  [slide_nav_item order="2"/]
+[/slide_nav]
+[/slideshow]]]></description>
+			<category>Pages</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+		<item>
+			<title>FAQs</title>
+			<link>https://ambazonia.org/en/15-pages/35-faqs</link>
+			<guid isPermaLink="true">https://ambazonia.org/en/15-pages/35-faqs</guid>
+			<description><![CDATA[[toggle open="true" title="Are you available for freelance work?"]Yes I am! just contact me using the contact form on the right and indicate your budget and a detailed scope of your work. For theme customization my hourly rate is $65.[/toggle]
+
+[toggle open="true" title="Where can I find a wordpress/Joomla version?"]Yes I am! just contact me using the contact form on the right and indicate your budget and a detailed scope of your work.A. Lorem ipsum dolor amit I will embark on designing the HTML site first before venturing into a CMS theme. Depending on the feedback i get from buyers, I will select themes that I convert to CMS and they will be available on Themeforest or on my site.[/toggle]
+
+[toggle open="false" title="I bought your theme and I like it, but I need help with ABC"]A. Thank you! I will answer all of your questions
+[list style="list-icons"]
+   [li icon="icon-chevron-right"]At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/li]
+   [li icon="icon-chevron-right"]Justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/li]
+   [li icon="icon-chevron-right"]Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/li]
+[/list]
+[/toggle]
+
+[toggle open="false" title="I bought your theme but I think you should include ABC"]A. Please explain what I should improve and I'll add it to my to-do list Tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/toggle]
+
+[toggle open="false" title="Is there documentation available for this theme?"]A. Yes, a full documentation is available! Tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/toggle]
+
+[toggle open="false" title="I would like to see more work from you"]A. Sure, we are busy designing some real nice stuff to be uploaded pretty soon Tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est At vero eos et accusam et justo duo dolores et ea rebum[/toggle]
+]]></description>
+			<category>Pages</category>
+			<pubDate>Sat, 13 Jan 2018 00:11:51 +0000</pubDate>
+		</item>
+	</channel>
+</rss>

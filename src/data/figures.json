@@ -1,0 +1,114 @@
+{
+  "figures": [
+    {
+      "id": "john-ngu-foncha",
+      "name": "John Ngu Foncha",
+      "title": "Prime Minister of Southern Cameroons / Vice President of Cameroon",
+      "role": "Pre-eminent leader of the Southern Cameroons who negotiated the 1961 federal union.",
+      "era": ["federation"],
+      "category": "political",
+      "significance": "primary",
+      "bio": "John Ngu Foncha (1916–1999) served as Prime Minister of the Southern Cameroons from 1958 to 1961 and led his territory into federation with the Republic of Cameroon. He later became Vice President of the Federal Republic of Cameroon. In 1990, profoundly disillusioned by Yaoundé's systematic dismantlement of Anglophone institutions, Foncha publicly resigned from the ruling CPDM party and wrote a historic letter to the African Commission on Human and Peoples' Rights condemning the marginalisation of Anglophone Cameroonians. His repudiation of the federal arrangement he had brokered is cited as powerful evidence that the 1961 compact was subsequently betrayed.",
+      "tags": ["founding", "federation", "1961", "KNDP", "resignation", "ACHPR"]
+    },
+    {
+      "id": "endeley-emmanuel",
+      "name": "Dr. Emmanuel Mbella Lifafa Endeley",
+      "title": "Premier of the Southern Cameroons (1954–1958)",
+      "role": "First Premier of the Southern Cameroons; initially favoured union with Nigeria.",
+      "era": ["trusteeship", "federation"],
+      "category": "political",
+      "significance": "primary",
+      "bio": "Emmanuel Endeley (1916–1988) served as the first Premier of the Southern Cameroons from 1954 to 1958. He initially championed union with Nigeria over union with Francophone Cameroon, arguing that cultural and institutional affinities with Nigeria were stronger. His Kamerun National Congress (KNC) lost the 1959 general elections to John Foncha's KNDP, which had campaigned for reunification with the Cameroon Republic. Endeley's arguments about the distinct political identity of the Southern Cameroons remain foundational to the Ambazonian legal case.",
+      "tags": ["premiere", "1954", "Southern Cameroons", "KNC", "Nigeria option"]
+    },
+    {
+      "id": "sisiku-julius-ayuk-tabe",
+      "name": "Sisiku Julius Ayuk Tabe",
+      "title": "President, Interim Government of the Federal Republic of Ambazonia",
+      "role": "First Head of State of the Federal Republic of Ambazonia; proclaimed independence on 1 October 2017.",
+      "era": ["restoration"],
+      "category": "political",
+      "significance": "primary",
+      "bio": "Sisiku Julius Ayuk Tabe is the first President of the Interim Government of the Federal Republic of Ambazonia. He led the Ambazonian Governing Council and declared independence on 1 October 2017. In January 2018, he was abducted from Abuja, Nigeria, in what Amnesty International characterised as an unlawful rendition, and transferred to Cameroon where he was tried and convicted by a military tribunal. The UN Working Group on Arbitrary Detention issued an opinion in 2019 finding his detention arbitrary and calling for his release. He remains a symbol of Ambazonian sovereignty.",
+      "tags": ["President", "independence", "Interim Government", "detention", "UN", "rendition"]
+    },
+    {
+      "id": "felix-agbor-balla",
+      "name": "Nkongho Felix Agbor-Balla",
+      "title": "President, Cameroon Anglophone Civil Society Consortium (CACSC)",
+      "role": "Human rights lawyer and civil society leader; co-led the 2016–2017 Anglophone protests.",
+      "era": ["restoration"],
+      "category": "civil",
+      "significance": "primary",
+      "bio": "Nkongho Felix Agbor-Balla is a prominent Cameroonian human rights lawyer who served as President of the Cameroon Anglophone Civil Society Consortium (CACSC). In 2016 and early 2017, he co-led the peaceful civil society response to the imposition of French civil law and language in Anglophone courts and schools. He was arrested in January 2017 and held without trial. Following his release, he continued to advocate for a peaceful federal solution to the Anglophone crisis. The UN petition filed by CACSC under his leadership is a foundational document in the Ambazonian case.",
+      "tags": ["civil society", "CACSC", "lawyer", "2016 crisis", "peaceful resistance"]
+    },
+    {
+      "id": "samuel-ikome-sako",
+      "name": "Dr. Samuel Ikome Sako",
+      "title": "Acting President, Interim Government of the Federal Republic of Ambazonia",
+      "role": "Assumed the presidency following the abduction of President Sisiku Ayuk Tabe in 2018.",
+      "era": ["restoration"],
+      "category": "political",
+      "significance": "primary",
+      "bio": "Dr. Samuel Ikome Sako assumed the role of Acting President of the Interim Government of Ambazonia following the unlawful rendition of President Sisiku Julius Ayuk Tabe in January 2018. Based in the diaspora, he has worked to maintain the institutional continuity of the Interim Government and advance the case for Ambazonian self-determination through diplomatic, legal, and political channels. His leadership represents the continuity of the executive authority of the Federal Republic of Ambazonia.",
+      "tags": ["Acting President", "Interim Government", "diaspora", "continuity", "2018"]
+    },
+    {
+      "id": "pa-ndeh-tita",
+      "name": "Pa Ndeh Tita",
+      "title": "Veteran Leader, Social Democratic Front (SDF)",
+      "role": "Pioneer of multi-party democracy in Cameroon; a foundational voice of Anglophone political resistance.",
+      "era": ["unitary", "restoration"],
+      "category": "political",
+      "significance": "secondary",
+      "bio": "Pa Ndeh Tita is among the founding generation of Anglophone political resistance to the unitary Cameroonian state. The Social Democratic Front, established in 1990 in Bamenda, emerged as the principal opposition party in Cameroon and historically drew its strongest support from the Anglophone regions. The SDF's founding in Bamenda — and the violent suppression of its inaugural rally — became an emblem of state repression against Anglophone political aspirations. Figures associated with the SDF tradition represent the longer arc of Anglophone political resistance.",
+      "tags": ["SDF", "Bamenda", "multi-party", "opposition", "1990"]
+    },
+    {
+      "id": "martin-luma",
+      "name": "Martin Luma",
+      "title": "Spokesperson, Ambazonia Governing Council",
+      "role": "Public spokesperson and communications lead for the Ambazonian independence movement.",
+      "era": ["restoration"],
+      "category": "political",
+      "significance": "secondary",
+      "bio": "Martin Luma served as a key spokesperson and communications figure for the Ambazonia Governing Council in the period leading up to and following the declaration of independence. He was instrumental in articulating the legal and political case for Ambazonian self-determination to international audiences and diaspora communities.",
+      "tags": ["spokesperson", "Governing Council", "communications", "diaspora"]
+    },
+    {
+      "id": "solomon-tandeng-muna",
+      "name": "Solomon Tandeng Muna",
+      "title": "Speaker, Federal National Assembly / Vice President of Cameroon",
+      "role": "Senior federal-era political leader; one of the most prominent Anglophone figures in the post-1961 federal institutions.",
+      "era": ["federation", "unitary"],
+      "category": "political",
+      "significance": "primary",
+      "bio": "Solomon Tandeng Muna (1912–2002) was one of the most senior Anglophone political figures of the federal and unitary eras. He served as Prime Minister of West Cameroon, Speaker of the Federal National Assembly, and Vice President of Cameroon under President Ahmadou Ahidjo. Muna was a product of the federal constitutional arrangement and worked within its structures. In his later years he expressed dismay at the systematic erosion of Anglophone rights and institutions. His career illustrates both the promise of the 1961 federal compact and its ultimate betrayal by the Yaoundé government.",
+      "tags": ["federal era", "Vice President", "Speaker", "West Cameroon", "1961–1972"]
+    },
+    {
+      "id": "augustine-ngom-jua",
+      "name": "Augustine Ngom Jua",
+      "title": "Prime Minister of West Cameroon (1966–1968)",
+      "role": "Succeeded John Foncha as Prime Minister of West Cameroon during the federal period.",
+      "era": ["federation"],
+      "category": "political",
+      "significance": "secondary",
+      "bio": "Augustine Ngom Jua (1924–1977) served as Prime Minister of West Cameroon from 1966 to 1968, succeeding John Ngu Foncha. He held office during a period of intensifying pressure from Yaoundé on West Cameroonian federal autonomy. A member of the KNDP, Jua sought to preserve the integrity of Anglophone institutions within the federal framework. His tenure coincided with the acceleration of centralisation policies that would culminate in the abolition of the federation in 1972. He is remembered as a committed advocate for Anglophone federal rights within the constitutional order.",
+      "tags": ["Prime Minister", "West Cameroon", "KNDP", "federal era", "1966"]
+    },
+    {
+      "id": "fon-gorji-dinka",
+      "name": "Fon Gorji Dinka",
+      "title": "Legal Advocate; Author of the Declaration of Buea (1985)",
+      "role": "Pioneer of the legal case for Southern Cameroons restoration; first modern advocate for Ambazonian independence.",
+      "era": ["unitary", "restoration"],
+      "category": "legal",
+      "significance": "primary",
+      "bio": "Fon Gorji Dinka is widely regarded as the intellectual and legal pioneer of the Ambazonian independence movement. In 1985, he published the 'New Social Order' — known as the Declaration of Buea — which formally argued that the 1972 referendum was unconstitutional and that the Southern Cameroons had never legally ceased to be a separate political entity. He was subsequently arrested and imprisoned for his advocacy. His constitutional argument — that the abolition of the federation was void and that the Southern Cameroons retained its legal personality — became the foundational legal theory of the Ambazonian restoration movement and underpins the Interim Government's claim to sovereignty.",
+      "tags": ["Declaration of Buea", "1985", "legal pioneer", "restoration", "constitutional argument", "imprisoned"]
+    }
+  ]
+}
