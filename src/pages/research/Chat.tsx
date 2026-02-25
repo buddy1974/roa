@@ -24,6 +24,15 @@ interface FaqEntry {
 
 interface DocRecord { id: string; title: string }
 
+interface Citation {
+  type:  'document' | 'faq'
+  id:    string
+  title: string
+  url:   string
+  quote: string
+  why:   string
+}
+
 interface UserMsg {
   id:   string
   role: 'user'
@@ -39,7 +48,17 @@ interface AsstMsg {
   score:     number
 }
 
-type Msg = UserMsg | AsstMsg
+interface AiMsg {
+  id:          string
+  role:        'ai-assistant'
+  query:       string
+  answer:      string
+  citations:   Citation[]
+  usedSources: number
+  error?:      string
+}
+
+type Msg = UserMsg | AsstMsg | AiMsg
 
 // ── Static module-level data ───────────────────────────────────────────────────
 
@@ -67,7 +86,7 @@ const KEY_TERMS = new Set([
   'secession', 'referendum', 'mandate', 'decolonisation', 'sovereignty',
 ])
 
-// ── Response engine ────────────────────────────────────────────────────────────
+// ── Deterministic response engine ─────────────────────────────────────────────
 
 function computeResponse(
   entries:  FaqEntry[],
@@ -75,7 +94,6 @@ function computeResponse(
 ): { entry: FaqEntry | null; score: number; fallbacks: FaqEntry[] } {
   if (entries.length === 0) return { entry: null, score: 0, fallbacks: [] }
 
-  // Normalise: lowercase, strip punctuation, collapse whitespace
   const q     = rawQuery.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim()
   const words = q.split(' ').filter(w => w.length >= 3)
 
@@ -90,10 +108,8 @@ function computeResponse(
     const dl  = e.deepAnswer.join(' ').toLowerCase()
     const all = ql + ' ' + sl + ' ' + dl
 
-    // Exact phrase match of full normalised query in question: +8
     if (ql.includes(q)) s += 8
 
-    // Phrase match of 2–4 word chunks: +4 in question, +2 in shortAnswer
     const maxLen = Math.min(4, words.length)
     for (let len = maxLen; len >= 2; len--) {
       for (let i = 0; i <= words.length - len; i++) {
@@ -103,13 +119,11 @@ function computeResponse(
       }
     }
 
-    // Word overlap: +2 per word found in question, +1 per word in short/deep
     for (const w of words) {
       if (ql.includes(w))  s += 2
       if (sl.includes(w) || dl.includes(w)) s += 1
     }
 
-    // Key-term bonus: +3 when the same domain term appears in both query and entry
     for (const term of KEY_TERMS) {
       if (q.includes(term) && all.includes(term)) s += 3
     }
@@ -118,15 +132,10 @@ function computeResponse(
   })
 
   scored.sort((a, b) => b.score - a.score)
-
   const best = scored[0]
 
   if (best.score < THRESHOLD) {
-    return {
-      entry:     null,
-      score:     best.score,
-      fallbacks: scored.slice(0, 3).map(s => s.entry),
-    }
+    return { entry: null, score: best.score, fallbacks: scored.slice(0, 3).map(s => s.entry) }
   }
 
   return { entry: best.entry, score: best.score, fallbacks: [] }
@@ -136,22 +145,47 @@ function computeResponse(
 
 function entryToCopyText(entry: FaqEntry): string {
   return [
-    entry.question,
-    '',
-    entry.shortAnswer,
-    '',
+    entry.question, '',
+    entry.shortAnswer, '',
     'Detailed Analysis:',
-    ...entry.deepAnswer.map(d => '  — ' + d),
-    '',
-    'Ambazonian Claim:',
-    '  ' + entry.ambazoniaClaim,
-    '',
-    'Cameroon Position:',
-    '  ' + entry.cameroonPosition,
-    '',
-    'International Context:',
-    '  ' + entry.internationalContext,
+    ...entry.deepAnswer.map(d => '  — ' + d), '',
+    'Ambazonian Claim:', '  ' + entry.ambazoniaClaim, '',
+    'Cameroon Position:', '  ' + entry.cameroonPosition, '',
+    'International Context:', '  ' + entry.internationalContext,
   ].join('\n')
+}
+
+// ── API call ───────────────────────────────────────────────────────────────────
+
+async function fetchAiAnswer(
+  question:   string,
+  maxSources: number,
+): Promise<{ answer: string; citations: Citation[]; usedSources: number } | { error: string; code?: string }> {
+  const resp = await fetch('/api/chat', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ question, mode: 'ai', maxSources }),
+  })
+
+  if (resp.status === 429) return { error: 'Rate limit reached. Please wait a few minutes before using AI mode again.', code: 'RATE_LIMITED' }
+  if (resp.status === 503) return { error: 'AI enhanced answers are not available on this deployment. Using deterministic mode instead.', code: 'LLM_NOT_CONFIGURED' }
+
+  if (!resp.ok) {
+    const data = await resp.json().catch(() => ({})) as { error?: string }
+    return { error: data.error ?? `Server error (${resp.status}).`, code: 'API_ERROR' }
+  }
+
+  const data = await resp.json() as {
+    answer:    string
+    citations: Citation[]
+    limits:    { usedSources: number }
+  }
+  return { answer: data.answer, citations: data.citations, usedSources: data.limits.usedSources }
+}
+
+// Strip [D:id] / [F:id] citation markers from displayed answer text
+function stripCitationMarkers(text: string): string {
+  return text.replace(/\s*\[[DF]:[^\]]{1,120}\]/g, '').trim()
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -162,6 +196,8 @@ export default function Chat() {
   const [messages, setMessages]     = useState<Msg[]>([])
   const [input, setInput]           = useState('')
   const [copiedId, setCopiedId]     = useState<string | null>(null)
+  const [aiMode, setAiMode]         = useState(false)
+  const [aiLoading, setAiLoading]   = useState(false)
   const bottomRef                   = useRef<HTMLDivElement>(null)
 
   // Lazy-load FAQ JSON — separate Vite chunk
@@ -187,24 +223,78 @@ export default function Chat() {
     [allEntries]
   )
 
-  function submit(text: string) {
-    const q = text.trim()
-    if (!q || !faqLoaded) return
-
-    const ts          = Date.now()
-    const userMsg: UserMsg = { id: `u${ts}`,     role: 'user',      text: q }
-    const response    = computeResponse(allEntries, q)
+  function submitDeterministic(text: string) {
+    const q    = text.trim()
+    const ts   = Date.now()
+    const userMsg: UserMsg = { id: `u${ts}`, role: 'user', text: q }
+    const resp = computeResponse(allEntries, q)
     const asstMsg: AsstMsg = {
       id:        `a${ts}`,
       role:      'assistant',
       query:     q,
-      entry:     response.entry,
-      fallbacks: response.fallbacks,
-      score:     response.score,
+      entry:     resp.entry,
+      fallbacks: resp.fallbacks,
+      score:     resp.score,
     }
-
     setMessages(prev => [...prev, userMsg, asstMsg])
     setInput('')
+  }
+
+  async function submitAi(text: string) {
+    const q  = text.trim()
+    const ts = Date.now()
+    const userMsg: UserMsg = { id: `u${ts}`, role: 'user', text: q }
+    setMessages(prev => [...prev, userMsg])
+    setInput('')
+    setAiLoading(true)
+
+    try {
+      const result = await fetchAiAnswer(q, 6)
+
+      if ('error' in result) {
+        // 503 / rate-limit: show error inline; for other errors fall back to deterministic
+        if (result.code === 'LLM_NOT_CONFIGURED' || result.code === 'RATE_LIMITED') {
+          const aiMsg: AiMsg = {
+            id: `ai${ts}`, role: 'ai-assistant', query: q,
+            answer: '', citations: [], usedSources: 0, error: result.error,
+          }
+          setMessages(prev => [...prev, aiMsg])
+        } else {
+          // Network / unknown error → deterministic fallback
+          const resp    = computeResponse(allEntries, q)
+          const asstMsg: AsstMsg = {
+            id: `a${ts}`, role: 'assistant', query: q,
+            entry: resp.entry, fallbacks: resp.fallbacks, score: resp.score,
+          }
+          setMessages(prev => [...prev, asstMsg])
+        }
+      } else {
+        const aiMsg: AiMsg = {
+          id: `ai${ts}`, role: 'ai-assistant', query: q,
+          answer:      result.answer,
+          citations:   result.citations,
+          usedSources: result.usedSources,
+        }
+        setMessages(prev => [...prev, aiMsg])
+      }
+    } catch {
+      // Network failure → deterministic fallback
+      const resp    = computeResponse(allEntries, q)
+      const asstMsg: AsstMsg = {
+        id: `a${ts}`, role: 'assistant', query: q,
+        entry: resp.entry, fallbacks: resp.fallbacks, score: resp.score,
+      }
+      setMessages(prev => [...prev, asstMsg])
+    } finally {
+      setAiLoading(false)
+    }
+  }
+
+  function submit(text: string) {
+    const q = text.trim()
+    if (!q || !faqLoaded || aiLoading) return
+    if (aiMode) submitAi(q)
+    else submitDeterministic(q)
   }
 
   async function handleCopy(msg: AsstMsg) {
@@ -246,8 +336,8 @@ export default function Chat() {
               Research Chat — Ambazonia Orientation
             </h1>
             <p className="text-sm font-sans text-navy-700/55 leading-relaxed max-w-xl">
-              Deterministic, document-grounded answers drawn from the institutional FAQ.
-              All responses come directly from curated archive data — no invented facts.
+              Answers drawn from the institutional FAQ and document archive.
+              All responses are citation-bound to curated archive data — no invented facts.
             </p>
           </div>
           {!isEmpty && (
@@ -290,7 +380,7 @@ export default function Chat() {
       )}
 
       {/* Message list */}
-      {!isEmpty && (
+      {(!isEmpty || aiLoading) && (
         <div
           className="border border-slate-200 overflow-y-auto mb-4"
           style={{ maxHeight: '62vh' }}
@@ -301,33 +391,84 @@ export default function Chat() {
           {messages.map(msg => {
             if (msg.role === 'user') {
               return (
-                <div
-                  key={msg.id}
-                  className="px-5 py-4 border-b border-slate-100 bg-parchment-50/50"
-                >
-                  <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-1.5">
-                    You
-                  </p>
+                <div key={msg.id} className="px-5 py-4 border-b border-slate-100 bg-parchment-50/50">
+                  <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-1.5">You</p>
                   <p className="text-sm font-sans text-navy-700 leading-relaxed">{msg.text}</p>
                 </div>
               )
             }
 
-            // assistant message — TypeScript narrows msg to AsstMsg here
+            // ── AI-assistant message ──────────────────────────────────────────
+            if (msg.role === 'ai-assistant') {
+              return (
+                <div key={msg.id} className="px-5 py-5 border-b border-slate-100">
+                  <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-4">
+                    Archive <span className="text-gold-600/60">(AI)</span>
+                  </p>
+
+                  {msg.error ? (
+                    <p className="text-sm font-sans text-navy-700/60 leading-relaxed italic">
+                      {msg.error}
+                    </p>
+                  ) : (
+                    <>
+                      {/* Answer text — citation markers stripped, split into paragraphs */}
+                      <div className="space-y-3 mb-5">
+                        {stripCitationMarkers(msg.answer)
+                          .split(/\n{2,}/)
+                          .filter(Boolean)
+                          .map((para, i) => (
+                            <p key={i} className="text-sm font-sans text-navy-700/80 leading-relaxed">
+                              {para.trim()}
+                            </p>
+                          ))}
+                      </div>
+
+                      {/* Citations */}
+                      {msg.citations.length > 0 && (
+                        <div className="border-t border-slate-100 pt-4 mb-3">
+                          <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-3">
+                            Sources ({msg.usedSources} retrieved)
+                          </p>
+                          <ul className="space-y-3">
+                            {msg.citations.map(c => (
+                              <li key={c.id} className="border-l-2 border-slate-200 pl-3">
+                                <Link
+                                  to={c.url}
+                                  className="text-sm font-sans text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors block leading-snug"
+                                >
+                                  {c.title}
+                                </Link>
+                                <p className="text-xs font-sans text-navy-700/45 mt-0.5 leading-snug">
+                                  {c.why}
+                                </p>
+                                {c.quote && c.quote !== c.title && (
+                                  <p className="text-xs font-sans text-navy-700/40 mt-1 leading-relaxed italic">
+                                    "{c.quote.slice(0, 180)}{c.quote.length > 180 ? '…' : ''}"
+                                  </p>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )
+            }
+
+            // ── Deterministic assistant message ───────────────────────────────
             return (
               <div key={msg.id} className="px-5 py-5 border-b border-slate-100">
-                <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-4">
-                  Archive
-                </p>
+                <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-4">Archive</p>
 
                 {msg.entry ? (
                   <>
-                    {/* Answer: short */}
                     <p className="text-sm font-sans text-navy-700/80 leading-relaxed mb-5">
                       {msg.entry.shortAnswer}
                     </p>
 
-                    {/* Explanation: deep answer */}
                     <details className="mb-5">
                       <summary className="text-xs font-sans text-navy-700/40 uppercase tracking-widest cursor-pointer select-none hover:text-navy-700/60 transition-colors mb-2">
                         Detailed Analysis
@@ -339,53 +480,31 @@ export default function Chat() {
                               className="text-xs shrink-0 pt-0.5"
                               style={{ color: 'rgba(200,176,112,0.50)' }}
                               aria-hidden="true"
-                            >
-                              —
-                            </span>
-                            <span className="text-sm font-sans text-navy-700/65 leading-relaxed">
-                              {d}
-                            </span>
+                            >—</span>
+                            <span className="text-sm font-sans text-navy-700/65 leading-relaxed">{d}</span>
                           </li>
                         ))}
                       </ul>
                     </details>
 
-                    {/* Perspectives */}
                     <div className="space-y-3 mb-5">
                       <div className="border-l-2 border-gold-500/40 pl-3 py-0.5">
-                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">
-                          Ambazonian Claim
-                        </p>
-                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">
-                          {msg.entry.ambazoniaClaim}
-                        </p>
+                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">Ambazonian Claim</p>
+                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">{msg.entry.ambazoniaClaim}</p>
                       </div>
-
                       <div className="border-l-2 border-slate-200 pl-3 py-0.5">
-                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">
-                          Cameroon Position
-                        </p>
-                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">
-                          {msg.entry.cameroonPosition}
-                        </p>
+                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">Cameroon Position</p>
+                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">{msg.entry.cameroonPosition}</p>
                       </div>
-
                       <div className="border-l-2 border-slate-200 pl-3 py-0.5">
-                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">
-                          International Context
-                        </p>
-                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">
-                          {msg.entry.internationalContext}
-                        </p>
+                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">International Context</p>
+                        <p className="text-sm font-sans text-navy-700/65 leading-relaxed">{msg.entry.internationalContext}</p>
                       </div>
                     </div>
 
-                    {/* Related documents */}
                     {msg.entry.relatedDocuments.length > 0 && (
                       <div className="mb-4">
-                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-2">
-                          Related Documents
-                        </p>
+                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-2">Related Documents</p>
                         <ul className="space-y-1">
                           {msg.entry.relatedDocuments.map(docId => (
                             <li key={docId}>
@@ -401,7 +520,6 @@ export default function Chat() {
                       </div>
                     )}
 
-                    {/* Copy answer */}
                     <button
                       onClick={() => handleCopy(msg)}
                       className="text-xs font-sans border border-slate-200 px-2.5 py-1 text-navy-700/50 hover:border-gold-400 hover:text-navy-700 transition-colors"
@@ -410,13 +528,11 @@ export default function Chat() {
                     </button>
                   </>
                 ) : (
-                  /* Fallback: no match above threshold */
                   <>
                     <p className="text-sm font-sans text-navy-700/70 leading-relaxed mb-4">
                       I don't have a direct entry for that exact question yet.
                       {msg.fallbacks.length > 0 && ' The closest matches in the archive are:'}
                     </p>
-
                     {msg.fallbacks.length > 0 && (
                       <ul className="space-y-2 mb-5">
                         {msg.fallbacks.map(e => (
@@ -431,59 +547,87 @@ export default function Chat() {
                         ))}
                       </ul>
                     )}
-
                     <p className="text-xs font-sans text-navy-700/40 leading-relaxed">
                       Browse all questions at{' '}
-                      <Link
-                        to="/research/orientation"
-                        className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors"
-                      >
+                      <Link to="/research/orientation" className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors">
                         Orientation
                       </Link>
                       {' '}or search primary documents at{' '}
-                      <Link
-                        to="/research/inquiry"
-                        className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors"
-                      >
+                      <Link to="/research/inquiry" className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors">
                         Document Search
-                      </Link>
-                      .
+                      </Link>.
                     </p>
                   </>
                 )}
               </div>
             )
           })}
+
+          {/* Loading indicator while AI is working */}
+          {aiLoading && (
+            <div className="px-5 py-5 border-b border-slate-100">
+              <p className="text-xs font-sans text-navy-700/35 uppercase tracking-widest mb-3">
+                Archive <span className="text-gold-600/60">(AI)</span>
+              </p>
+              <p className="text-sm font-sans text-navy-700/40 italic">Retrieving and synthesising sources…</p>
+            </div>
+          )}
+
           <div ref={bottomRef} />
         </div>
       )}
 
       {/* Input area */}
-      <div className="flex gap-2 max-w-2xl">
-        <label htmlFor="chat-input" className="sr-only">Ask a question</label>
-        <input
-          id="chat-input"
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); submit(input) } }}
-          placeholder={faqLoaded ? 'Ask a question about Ambazonia…' : 'Loading…'}
-          disabled={!faqLoaded}
-          className="flex-1 border border-slate-200 px-4 py-2.5 text-sm font-sans text-navy-900 placeholder:text-navy-700/35 focus:outline-none focus:border-gold-400 bg-white disabled:opacity-40"
-        />
-        <button
-          onClick={() => submit(input)}
-          disabled={!faqLoaded || !input.trim()}
-          className="px-5 py-2.5 text-sm font-sans bg-navy-900 text-parchment-100 hover:bg-navy-800 transition-colors disabled:opacity-30"
-        >
-          Send
-        </button>
+      <div className="max-w-2xl">
+        <div className="flex gap-2 mb-3">
+          <label htmlFor="chat-input" className="sr-only">Ask a question</label>
+          <input
+            id="chat-input"
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); submit(input) } }}
+            placeholder={faqLoaded ? 'Ask a question about Ambazonia…' : 'Loading…'}
+            disabled={!faqLoaded || aiLoading}
+            className="flex-1 border border-slate-200 px-4 py-2.5 text-sm font-sans text-navy-900 placeholder:text-navy-700/35 focus:outline-none focus:border-gold-400 bg-white disabled:opacity-40"
+          />
+          <button
+            onClick={() => submit(input)}
+            disabled={!faqLoaded || !input.trim() || aiLoading}
+            className="px-5 py-2.5 text-sm font-sans bg-navy-900 text-parchment-100 hover:bg-navy-800 transition-colors disabled:opacity-30"
+          >
+            Send
+          </button>
+        </div>
+
+        {/* AI mode toggle */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setAiMode(v => !v)}
+            className={
+              'text-xs font-sans border px-3 py-1.5 transition-colors ' +
+              (aiMode
+                ? 'border-gold-500 bg-gold-500/10 text-navy-900'
+                : 'border-slate-200 text-navy-700/50 hover:border-gold-400 hover:text-navy-700')
+            }
+            aria-pressed={aiMode}
+          >
+            {aiMode ? 'Enhanced Answer (AI) — ON' : 'Enhanced Answer (AI)'}
+          </button>
+          {aiMode && (
+            <p className="text-xs font-sans text-navy-700/40">
+              AI mode is citation-bound to archive sources.
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Footer note */}
       <p className="text-xs font-sans text-navy-700/25 mt-4 max-w-2xl leading-relaxed">
-        Responses are generated deterministically from curated FAQ data.
-        For primary-source research, use{' '}
+        {aiMode
+          ? 'AI responses are constrained to retrieved archive sources and include explicit citations.'
+          : 'Responses are generated deterministically from curated FAQ data.'}
+        {' '}For primary-source research, use{' '}
         <Link to="/research/inquiry" className="underline underline-offset-2 hover:text-navy-700/50 transition-colors">
           Document Search
         </Link>.
