@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import type { Document } from '../../components/documents/DocumentCard'
 import { PageContainer, PageHeading } from '../../components/layout/PageContainer'
 import { DocumentMeta } from '../../components/documents/DocumentMeta'
 import { RouteMeta } from '../../components/seo/RouteMeta'
 import { JsonLd } from '../../components/seo/JsonLd'
 import { siteUrl } from '../../lib/env'
+import { getRelatedDocuments } from '../../lib/related'
 import documentsData from '../../data/documents.json'
 import Documents from '../Documents'
 
@@ -24,6 +26,8 @@ export default function DocumentView() {
 
   // Category nav fallback (e.g. /documents/constitution, /documents/proclamations)
   if (!doc) return <Documents />
+
+  const related = getRelatedDocuments(doc.id)
 
   const canonicalUrl = `${siteUrl}/documents/${doc.id}`
 
@@ -74,6 +78,34 @@ export default function DocumentView() {
 
         {/* Metadata + citation panel */}
         <DocumentMeta doc={doc} />
+
+        {/* Related documents */}
+        {related.length > 0 && (
+          <section className="mt-10" aria-labelledby="related-heading">
+            <div className="h-px w-10 bg-gold-500 mb-6" />
+            <h2
+              id="related-heading"
+              className="font-serif text-navy-900 text-xl mb-6"
+            >
+              Related Documents
+            </h2>
+            <ul className="space-y-3">
+              {related.map(r => (
+                <li key={r.id} className="border border-slate-200 p-4">
+                  <Link
+                    to={`/documents/${r.id}`}
+                    className="text-sm font-sans text-navy-900 hover:text-gold-600 transition-colors block leading-snug"
+                  >
+                    {r.title}
+                  </Link>
+                  <p className="text-xs font-sans text-navy-700/45 mt-1">
+                    {r.year ?? '—'} · {r.category}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </PageContainer>
     </>
   )

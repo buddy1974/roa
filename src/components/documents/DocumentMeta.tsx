@@ -5,6 +5,7 @@ import type { Document } from './DocumentCard'
 import { formatCitation, formatAcademicCitation } from '../../lib/citation'
 import { copyToClipboard } from '../../lib/clipboard'
 import { getDocNumber } from '../../lib/docNumber'
+import { classifyDocument } from '../../lib/docClass'
 import { Button } from '../ui/Button'
 
 const categoryLabels: Record<string, string> = {
@@ -49,6 +50,7 @@ export function DocumentMeta({ doc }: Props) {
   const academicCitation = formatAcademicCitation(doc, docNumber)
   const filename       = doc.file.split('/').pop() ?? doc.file
   const catLabel       = categoryLabels[doc.category] ?? doc.category
+  const { type: docType, status: docStatus } = classifyDocument(doc.category)
 
   async function handleCopy() {
     const ok = await copyToClipboard(citation)
@@ -82,6 +84,8 @@ export function DocumentMeta({ doc }: Props) {
           value={<code className="text-xs font-mono text-navy-700/60 break-all">{doc.id}</code>}
         />
         <MetaRow label="Category" value={catLabel} />
+        <MetaRow label="Type"     value={docType} />
+        <MetaRow label="Status"   value={docStatus} />
         {doc.year && <MetaRow label="Year" value={doc.year} />}
         <MetaRow
           label="Filename"
