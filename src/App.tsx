@@ -14,6 +14,7 @@ import DocumentView          from './pages/documents/DocumentView'
 import Inquiry               from './pages/research/Inquiry'
 import Authority             from './pages/about/Authority'
 import ConstitutionalIndex   from './pages/constitutional/Index'
+import Changelog             from './pages/about/Changelog'
 
 function NotFound() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="legal/proceedings"      element={<JudicialProceedings />} />
           <Route path="research/inquiry"       element={<Inquiry />} />
           <Route path="about/authority"        element={<Authority />} />
+          <Route path="about/changelog"        element={<Changelog />} />
           <Route path="index"                  element={<ConstitutionalIndex />} />
           <Route path="tourism"                element={<Tourism />} />
           <Route path="*"              element={<NotFound />} />

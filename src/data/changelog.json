@@ -1,0 +1,79 @@
+{
+  "entries": [
+    {
+      "version": "Phase 9",
+      "date": "2026-02-25",
+      "type": "Enhancement",
+      "summary": "Evidence-Grade Export & Auditability",
+      "changes": [
+        "Build-time SHA-256 checksums generated for all 91 archived PDFs using Node crypto",
+        "Deterministic index exports published to /exports/roa-index.json and /exports/roa-index.csv",
+        "SHA-256 metadata row added to all document pages with inline copy button",
+        "Prebuild script (scripts/generate-exports.js) wired into build pipeline",
+        "Changelog page added at /about/changelog"
+      ]
+    },
+    {
+      "version": "Phase 8",
+      "date": "2026-02-25",
+      "type": "Feature",
+      "summary": "Constitutional Index Layer",
+      "changes": [
+        "Thematic constitutional index published at /index, grouped by legal category",
+        "Deterministic related-document engine added to all document pages (score-ranked, stable tiebreak)",
+        "Document type and status fields derived from category and displayed in metadata panel",
+        "Breadcrumb system confirmed and integrated across all document and index pages"
+      ]
+    },
+    {
+      "version": "Phase 7",
+      "date": "2026-02-25",
+      "type": "Fix",
+      "summary": "Content Integrity & Historical Normalization",
+      "changes": [
+        "Corrected historical reference: Gorji Dinks → Gorji Dinka across all metadata",
+        "Legacy slug redirect added: /documents/*dinks* → /documents/*dinka* via CanonicalRedirect",
+        "Query synonym normalisation added to Research & Inquiry: 'dinks' maps to 'dinka' before scoring",
+        "Textual Normalization Policy section added to /about/authority",
+        "Slug integrity audit completed: pre-existing violation noted (andamp; in one slug, not introduced by this phase)"
+      ]
+    },
+    {
+      "version": "Phase 6",
+      "date": "2026-02-25",
+      "type": "Feature",
+      "summary": "Institutional Weight",
+      "changes": [
+        "Immutable document numbering system implemented (ROA-YYYY-XXXX, deterministic, locale-independent sort)",
+        "Dual citation export: institutional format retained; academic format added with Copy button",
+        "Authority declaration page published at /about/authority (Archival Permanence, Citation Policy, Canonical Structure)"
+      ]
+    },
+    {
+      "version": "Phase 5",
+      "date": "2026-02-25",
+      "type": "Feature",
+      "summary": "Authority Hardening",
+      "changes": [
+        "Citation system with clipboard copy (institutional format)",
+        "DocumentMeta panel with title, year, category, filename, keywords, and citation box",
+        "Canonical /documents/:slug route with SPA redirect enforcement (lowercase, no trailing slash)",
+        "Route-level meta tags (document.title, meta description, canonical link) without react-helmet",
+        "JSON-LD schema: Organization and GovernmentOrganization in Layout; CreativeWork per document",
+        "All internal document links updated to use canonical /documents/{slug} routes",
+        "CI pipeline and branching strategy documented"
+      ]
+    },
+    {
+      "version": "Phase 4",
+      "date": "2026-02-25",
+      "type": "Feature",
+      "summary": "Research & Inquiry",
+      "changes": [
+        "Document search page added at /research/inquiry",
+        "Relevance scoring across title, category, year, and keywords — no AI inference",
+        "300ms debounced input with desktop table and mobile card layouts"
+      ]
+    }
+  ]
+}

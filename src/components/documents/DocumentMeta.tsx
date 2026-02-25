@@ -7,6 +7,9 @@ import { copyToClipboard } from '../../lib/clipboard'
 import { getDocNumber } from '../../lib/docNumber'
 import { classifyDocument } from '../../lib/docClass'
 import { Button } from '../ui/Button'
+import checksumsRaw from '../../data/roa-checksums.json'
+
+const CHECKSUMS = checksumsRaw as Record<string, string>
 
 const categoryLabels: Record<string, string> = {
   constitutional: 'Constitutional',
@@ -44,6 +47,7 @@ interface Props {
 export function DocumentMeta({ doc }: Props) {
   const [copied, setCopied] = useState(false)
   const [copiedAcademic, setCopiedAcademic] = useState(false)
+  const [copiedSha, setCopiedSha] = useState(false)
 
   const docNumber      = getDocNumber(doc.id)
   const citation       = formatCitation(doc)
@@ -51,6 +55,15 @@ export function DocumentMeta({ doc }: Props) {
   const filename       = doc.file.split('/').pop() ?? doc.file
   const catLabel       = categoryLabels[doc.category] ?? doc.category
   const { type: docType, status: docStatus } = classifyDocument(doc.category)
+  const sha256 = CHECKSUMS[doc.id] ?? ''
+
+  async function handleCopySha() {
+    const ok = await copyToClipboard(sha256)
+    if (ok) {
+      setCopiedSha(true)
+      setTimeout(() => setCopiedSha(false), 2000)
+    }
+  }
 
   async function handleCopy() {
     const ok = await copyToClipboard(citation)
@@ -91,6 +104,24 @@ export function DocumentMeta({ doc }: Props) {
           label="Filename"
           value={<span className="font-mono text-xs text-navy-700/60 break-all">{filename}</span>}
         />
+        {sha256 && (
+          <MetaRow
+            label="SHA-256"
+            value={
+              <div className="flex items-start gap-2">
+                <code className="text-xs font-mono text-navy-700/60 break-all select-all flex-1 leading-relaxed">
+                  {sha256}
+                </code>
+                <button
+                  onClick={() => { void handleCopySha() }}
+                  className="text-xs font-sans text-navy-700/40 hover:text-navy-700/70 transition-colors shrink-0 whitespace-nowrap pt-px"
+                >
+                  {copiedSha ? '✓' : 'Copy'}
+                </button>
+              </div>
+            }
+          />
+        )}
         {doc.relatedSections.length > 0 && (
           <MetaRow
             label="Keywords"

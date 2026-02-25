@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "generate-exports": "node scripts/generate-exports.js",
+    "build": "node scripts/generate-exports.js && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
