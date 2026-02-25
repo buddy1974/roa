@@ -13,22 +13,10 @@ import Archive                from './pages/documents/Archive'
 import DocumentView          from './pages/documents/DocumentView'
 import Inquiry               from './pages/research/Inquiry'
 import Authority             from './pages/about/Authority'
+import Ledger                from './pages/about/Ledger'
 import ConstitutionalIndex   from './pages/constitutional/Index'
 import Changelog             from './pages/about/Changelog'
-
-function NotFound() {
-  return (
-    <div className="max-w-7xl mx-auto px-6 py-32 text-center">
-      <div className="h-px w-10 bg-gold-500 mx-auto mb-8" />
-      <h1 className="font-serif text-parchment-100 text-4xl mb-4">
-        Page Not Found
-      </h1>
-      <p className="text-parchment-200/50 font-sans">
-        The requested resource does not exist in this archive.
-      </p>
-    </div>
-  )
-}
+import NotFound              from './pages/NotFound'
 
 export default function App() {
   return (
@@ -50,9 +38,11 @@ export default function App() {
           <Route path="research/inquiry"       element={<Inquiry />} />
           <Route path="about/authority"        element={<Authority />} />
           <Route path="about/changelog"        element={<Changelog />} />
+          <Route path="about/ledger"           element={<Ledger />} />
           <Route path="index"                  element={<ConstitutionalIndex />} />
           <Route path="tourism"                element={<Tourism />} />
-          <Route path="*"              element={<NotFound />} />
+          <Route path="404"                    element={<NotFound />} />
+          <Route path="*"                      element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

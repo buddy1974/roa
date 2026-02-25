@@ -6,18 +6,43 @@
  *   public/exports/roa-checksums.json   docId → sha256
  *   public/exports/roa-index.json       full document index
  *   public/exports/roa-index.csv        same, CSV format
+ *   public/exports/release.json         version manifest with indexSha256
+ *   public/health.json                  lightweight health/version endpoint
  *   src/data/roa-checksums.json         importable copy for DocumentMeta
+ *   src/data/build-info.json            version stamp importable by React pages
  *
- * No external dependencies — Node built-ins only (fs, path, crypto, url).
+ * No external dependencies — Node built-ins only (fs, path, crypto, url, child_process).
  */
 
-import fs   from 'fs'
-import path from 'path'
-import crypto from 'crypto'
+import fs            from 'fs'
+import path          from 'path'
+import crypto        from 'crypto'
+import { execSync }  from 'child_process'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT      = path.join(__dirname, '..')
+
+// ── Package version ───────────────────────────────────────────────────────────
+
+const { version } = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')
+)
+
+// ── Git commit hash ───────────────────────────────────────────────────────────
+
+let gitCommit = 'unknown'
+try {
+  gitCommit = execSync('git rev-parse --short HEAD', {
+    cwd: ROOT,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+  }).trim()
+} catch {
+  // git not available or not a git repo — leave as 'unknown'
+}
+
+const builtAtUTC = new Date().toISOString()
 
 // ── Source data ───────────────────────────────────────────────────────────────
 
@@ -69,7 +94,7 @@ const siteUrl = (process.env.VITE_SITE_URL ?? '').replace(/\/$/, '')
 
 // ── Build sorted index: year asc, then title asc (locale-independent) ─────────
 
-const sorted = [...documents].sort((a, b) => {
+const sortedDocs = [...documents].sort((a, b) => {
   const ya = a.year ?? '0000'
   const yb = b.year ?? '0000'
   if (ya !== yb) return ya < yb ? -1 : ya > yb ? 1 : 0
@@ -78,7 +103,7 @@ const sorted = [...documents].sort((a, b) => {
   return ta < tb ? -1 : ta > tb ? 1 : 0
 })
 
-const indexEntries = sorted.map(doc => ({
+const indexEntries = sortedDocs.map(doc => ({
   docNumber:    docNumberMap.get(doc.id) ?? 'ROA-0000-0000',
   id:           doc.id,
   title:        doc.title,
@@ -92,6 +117,7 @@ const indexEntries = sorted.map(doc => ({
 // ── Write outputs ─────────────────────────────────────────────────────────────
 
 const EXPORTS_DIR  = path.join(ROOT, 'public', 'exports')
+const PUBLIC_DIR   = path.join(ROOT, 'public')
 const SRC_DATA_DIR = path.join(ROOT, 'src', 'data')
 
 fs.mkdirSync(EXPORTS_DIR, { recursive: true })
@@ -103,10 +129,8 @@ fs.writeFileSync(
 )
 
 // public/exports/roa-index.json
-fs.writeFileSync(
-  path.join(EXPORTS_DIR, 'roa-index.json'),
-  JSON.stringify(indexEntries, null, 2),
-)
+const indexJson = JSON.stringify(indexEntries, null, 2)
+fs.writeFileSync(path.join(EXPORTS_DIR, 'roa-index.json'), indexJson)
 
 // public/exports/roa-index.csv
 const CSV_KEYS = ['docNumber','id','title','year','category','canonicalUrl','pdfPath','sha256']
@@ -123,17 +147,43 @@ fs.writeFileSync(
   [CSV_KEYS.join(','), ...indexEntries.map(e => CSV_KEYS.map(k => csvCell(e[k])).join(','))].join('\n'),
 )
 
+// public/exports/release.json — version manifest with indexSha256
+const indexSha256 = crypto.createHash('sha256').update(indexJson).digest('hex')
+const releaseManifest = { version, gitCommit, builtAtUTC, documentCount: documents.length, indexSha256 }
+fs.writeFileSync(
+  path.join(EXPORTS_DIR, 'release.json'),
+  JSON.stringify(releaseManifest, null, 2),
+)
+
+// public/health.json — lightweight health endpoint
+const healthPayload = { version, builtAtUTC, commit: gitCommit, documentCount: documents.length }
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, 'health.json'),
+  JSON.stringify(healthPayload, null, 2),
+)
+
 // src/data/roa-checksums.json — importable by DocumentMeta at Vite build time
 fs.writeFileSync(
   path.join(SRC_DATA_DIR, 'roa-checksums.json'),
   JSON.stringify(checksums, null, 2),
 )
 
+// src/data/build-info.json — version stamp importable by React pages
+const buildInfo = { version, gitCommit, builtAtUTC }
+fs.writeFileSync(
+  path.join(SRC_DATA_DIR, 'build-info.json'),
+  JSON.stringify(buildInfo, null, 2),
+)
+
 // ── Summary ───────────────────────────────────────────────────────────────────
 
 const hashed = Object.values(checksums).filter(v => v.length > 0).length
 console.log(`✓ generate-exports: ${indexEntries.length} documents, ${hashed} PDFs hashed`)
+console.log(`  version    : ${version}  commit: ${gitCommit}`)
 console.log(`  public/exports/roa-checksums.json`)
-console.log(`  public/exports/roa-index.json`)
+console.log(`  public/exports/roa-index.json    (sha256: ${indexSha256.slice(0, 16)}…)`)
 console.log(`  public/exports/roa-index.csv`)
+console.log(`  public/exports/release.json`)
+console.log(`  public/health.json`)
 console.log(`  src/data/roa-checksums.json`)
+console.log(`  src/data/build-info.json`)

@@ -8,7 +8,6 @@ import { JsonLd } from '../../components/seo/JsonLd'
 import { siteUrl } from '../../lib/env'
 import { getRelatedDocuments } from '../../lib/related'
 import documentsData from '../../data/documents.json'
-import Documents from '../Documents'
 
 const ALL_DOCS = documentsData.documents as Document[]
 
@@ -16,16 +15,53 @@ const ALL_DOCS = documentsData.documents as Document[]
  * Canonical document view at /documents/:slug.
  *
  * Slug resolution:
- *   1. Prefer `doc.id` (filename-derived, stable across builds).
- *   2. If slug matches no document (e.g. category nav like /documents/constitution),
- *      fall back to the main Documents listing — preserving backward compatibility.
+ *   Matches `doc.id` (filename-derived, stable across builds).
+ *   If no document is found, renders an institutional not-found message.
  */
 export default function DocumentView() {
   const { slug } = useParams<{ slug: string }>()
   const doc: Document | undefined = slug ? ALL_DOCS.find(d => d.id === slug) : undefined
 
-  // Category nav fallback (e.g. /documents/constitution, /documents/proclamations)
-  if (!doc) return <Documents />
+  if (!doc) {
+    return (
+      <>
+        <RouteMeta
+          title="Document Not Found — Republic of Ambazonia"
+          description="The requested document does not exist in this archive."
+          canonical={`${siteUrl}/documents/archive`}
+        />
+        <PageContainer
+          breadcrumbOverrides={[
+            { label: 'Home',      path: '/' },
+            { label: 'Documents', path: '/documents' },
+            { label: 'Not Found' },
+          ]}
+        >
+          <div className="py-20 text-center">
+            <div className="h-px w-10 bg-gold-500 mx-auto mb-8" />
+            <h1 className="font-serif text-navy-900 text-3xl mb-4">
+              Document Not Found
+            </h1>
+            <p className="text-sm font-sans text-navy-700/60 mb-8 max-w-md mx-auto leading-relaxed">
+              The document identifier{' '}
+              {slug && (
+                <code className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 text-navy-700">
+                  {slug}
+                </code>
+              )}{' '}
+              does not correspond to any record in this archive.
+            </p>
+            <Link
+              to="/documents/archive"
+              className="text-sm font-sans text-gold-600 hover:text-gold-700 transition-colors underline underline-offset-2"
+            >
+              Browse the full document archive
+            </Link>
+          </div>
+        </PageContainer>
+      </>
+    )
+  }
 
   const related = getRelatedDocuments(doc.id)
 

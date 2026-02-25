@@ -1,5 +1,7 @@
 import { RouteMeta } from '../../components/seo/RouteMeta'
+import { EnvWarning } from '../../components/ui/EnvWarning'
 import { siteUrl } from '../../lib/env'
+import buildInfo from '../../data/build-info.json'
 
 const Authority = () => {
   return (
@@ -11,6 +13,7 @@ const Authority = () => {
       />
 
       <div className="max-w-3xl mx-auto">
+        <EnvWarning />
         <div className="h-px w-10 bg-gold-500 mb-6" />
         <h1 className="font-serif text-navy-900 text-3xl mb-4">
           Archival Authority &amp; Citation Policy
@@ -159,6 +162,14 @@ const Authority = () => {
             </p>
           </div>
         </section>
+
+        {/* Build version stamp */}
+        <div className="border-t border-slate-100 pt-6 mt-4">
+          <p className="text-xs font-mono text-navy-700/30">
+            ROA v{buildInfo.version}{' '}
+            ({buildInfo.gitCommit !== 'unknown' ? buildInfo.gitCommit : 'dev'})
+          </p>
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "date": "2026-02-25",
+      "phase": "Phase 7",
+      "type": "Correction",
+      "field": "title, id",
+      "summary": "Historical reference normalised: Gorji Dinks corrected to Gorji Dinka",
+      "detail": "The document title 'Gorji Dinks Meeting With High Commissioner' and its derived slug contained a transcription error. Corrected to 'Gorji Dinka' in documents.json (title and id fields). Physical PDF filename unchanged to preserve file-system continuity. A client-side redirect from /documents/*dinks* to /documents/*dinka* was added to maintain external link integrity.",
+      "affectedIds": ["gorji-dinka_meeting20with20high20commissioner"],
+      "authorisedBy": "Phase 7 — Content Integrity Hardening"
+    },
+    {
+      "date": "2026-02-25",
+      "phase": "Phase 5",
+      "type": "Migration",
+      "field": "routing",
+      "summary": "Internal document links migrated from raw PDF paths to canonical /documents/:slug routes",
+      "detail": "All internal anchor tags pointing to PDF file paths were replaced with React Router Link components targeting the canonical document page at /documents/{id}. Affected components: DocumentReference, DocumentViewer, Archive.",
+      "affectedIds": [],
+      "authorisedBy": "Phase 5 — Authority Hardening, Deliverable F"
+    },
+    {
+      "date": "2026-02-25",
+      "phase": "Phase 9",
+      "type": "Addition",
+      "field": "metadata",
+      "summary": "SHA-256 checksums computed for all 91 archived PDFs and added to document metadata panel",
+      "detail": "Build-time SHA-256 hashes generated via Node crypto for every PDF in public/documents/. Checksums exported to public/exports/roa-checksums.json and bundled into src/data/roa-checksums.json for client-side display on document pages. No document content was altered.",
+      "affectedIds": [],
+      "authorisedBy": "Phase 9 — Evidence-Grade Export & Auditability"
+    }
+  ]
+}
