@@ -56,6 +56,15 @@
       ]
     },
     {
+      "id": "research",
+      "label": "Research & Inquiry",
+      "path": "/research/inquiry",
+      "icon": "search",
+      "children": [
+        { "label": "Document Inquiry", "path": "/research/inquiry" }
+      ]
+    },
+    {
       "id": "tourism",
       "label": "Territory",
       "path": "/tourism",

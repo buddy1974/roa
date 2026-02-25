@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Button } from '../ui/Button'
 import type { Document } from './DocumentCard'
 
@@ -91,6 +92,9 @@ export function DocumentViewer({ document: doc, onClose }: DocumentViewerProps) 
           >
             <Button variant="primary" size="sm">Download PDF</Button>
           </a>
+          <Link to={`/documents/${doc.id}`} onClick={onClose} className="inline-flex">
+            <Button variant="secondary" size="sm">View Page</Button>
+          </Link>
           <Button variant="ghost" size="sm" onClick={onClose}>Close</Button>
         </div>
       </div>

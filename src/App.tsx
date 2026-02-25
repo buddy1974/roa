@@ -10,6 +10,9 @@ import Figures                from './pages/history/Figures'
 import Timeline               from './pages/history/Timeline'
 import JudicialProceedings    from './pages/legal/JudicialProceedings'
 import Archive                from './pages/documents/Archive'
+import DocumentView          from './pages/documents/DocumentView'
+import Inquiry               from './pages/research/Inquiry'
+import Authority             from './pages/about/Authority'
 
 function NotFound() {
   return (
@@ -35,13 +38,15 @@ export default function App() {
           <Route path="governance/:sub" element={<Governance />} />
           <Route path="documents"          element={<Documents />} />
           <Route path="documents/archive" element={<Archive />} />
-          <Route path="documents/:sub"    element={<Documents />} />
+          <Route path="documents/:slug"   element={<DocumentView />} />
           <Route path="history"                element={<History />} />
           <Route path="history/continuity"     element={<Continuity />} />
           <Route path="history/timeline"       element={<Timeline />} />
           <Route path="history/figures"        element={<Figures />} />
           <Route path="legal"                  element={<JudicialProceedings />} />
           <Route path="legal/proceedings"      element={<JudicialProceedings />} />
+          <Route path="research/inquiry"       element={<Inquiry />} />
+          <Route path="about/authority"        element={<Authority />} />
           <Route path="tourism"                element={<Tourism />} />
           <Route path="*"              element={<NotFound />} />
         </Route>

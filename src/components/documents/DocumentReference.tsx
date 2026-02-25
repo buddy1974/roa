@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import documentsData from '../../data/documents.json'
 import type { Document } from './DocumentCard'
 
@@ -20,10 +21,8 @@ export function DocumentReference({ sectionId }: Props) {
       <ul className="flex flex-col gap-2">
         {docs.map(doc => (
           <li key={doc.id}>
-            <a
-              href={doc.file}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={`/documents/${doc.id}`}
               className="group flex items-baseline gap-2"
             >
               <span className="text-gold-600/50 text-xs flex-shrink-0 font-sans select-none">
@@ -37,7 +36,7 @@ export function DocumentReference({ sectionId }: Props) {
                   </span>
                 )}
               </span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

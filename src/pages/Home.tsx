@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
+import { RouteMeta } from '../components/seo/RouteMeta'
+import { siteUrl } from '../lib/env'
 import documentsData from '../data/documents.json'
 
 const pillars = [
@@ -89,6 +91,12 @@ export default function Home() {
 
   return (
     <>
+      <RouteMeta
+        title="Republic of Ambazonia — Official Digital Archive"
+        description="The official digital archive of the Federal Republic of Ambazonia. Historical documents, legal frameworks, and governance records of the sovereignty claim."
+        canonical={`${siteUrl}/`}
+      />
+
       {/* ── Hero Slideshow ─────────────────────────────── */}
       <section className="relative overflow-hidden bg-navy-950" style={{ minHeight: '560px' }}>
 

@@ -1,6 +1,9 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import documentsData from "../../data/documents.json";
 import { type Document } from "../../components/documents/DocumentCard";
+import { RouteMeta } from "../../components/seo/RouteMeta";
+import { siteUrl } from "../../lib/env";
 
 const documents = documentsData.documents as Document[];
 
@@ -38,6 +41,11 @@ const Archive = () => {
 
   return (
     <div className="container py-12">
+      <RouteMeta
+        title="Document Archive — Republic of Ambazonia"
+        description="Search and filter the complete institutional document archive of the Federal Republic of Ambazonia."
+        canonical={`${siteUrl}/documents/archive`}
+      />
       <h1 className="text-3xl font-bold mb-6">Document Archive</h1>
 
       <div className="flex gap-4 mb-6">
@@ -83,14 +91,12 @@ const Archive = () => {
               <p className="text-sm text-gray-500">
                 {doc.year} · {doc.category}
               </p>
-              <a
-                href={doc.file}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={`/documents/${doc.id}`}
                 className="text-blue-600 underline"
               >
                 Download
-              </a>
+              </Link>
             </div>
           ))
         )}
