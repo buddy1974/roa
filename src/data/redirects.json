@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    {
+      "from": "/documents/gorji-dinks_meeting20with20high20commissioner",
+      "to":   "/documents/gorji-dinka_meeting20with20high20commissioner",
+      "reason": "Transcription error correction: 'Dinks' normalised to 'Dinka' in document title, slug, and citation metadata.",
+      "date":  "2026-02-25",
+      "phase": "Phase 7"
+    }
+  ]
+}

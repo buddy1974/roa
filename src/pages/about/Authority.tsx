@@ -163,6 +163,41 @@ const Authority = () => {
           </div>
         </section>
 
+        {/* Section 5: Legacy Link Continuity */}
+        <section className="mb-12" aria-labelledby="link-continuity">
+          <h2
+            id="link-continuity"
+            className="font-serif text-navy-900 text-xl mb-3"
+          >
+            Legacy Link Continuity
+          </h2>
+          <div className="h-px w-6 bg-gold-500 mb-6" />
+          <div className="space-y-4 text-sm font-sans text-navy-700/75 leading-relaxed">
+            <p>
+              When a document URL must change — for example, due to a metadata correction that
+              alters the document identifier — the previous URL is preserved via a registered
+              client-side redirect. This ensures that external links, citations, and bookmarks
+              formed against the old URL continue to resolve correctly.
+            </p>
+            <p>
+              All active redirects are documented in the{' '}
+              <a
+                href="/about/redirects"
+                className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors"
+              >
+                Link Redirect Registry
+              </a>
+              , which records the legacy path, the canonical target, the reason for the change,
+              and the authorising phase.
+            </p>
+            <p>
+              Redirects are implemented at the router level and do not add entries to browser
+              history. The canonical URL is always the target used for citations and archival
+              references.
+            </p>
+          </div>
+        </section>
+
         {/* Build version stamp */}
         <div className="border-t border-slate-100 pt-6 mt-4">
           <p className="text-xs font-mono text-navy-700/30">

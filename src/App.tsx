@@ -14,8 +14,10 @@ import DocumentView          from './pages/documents/DocumentView'
 import Inquiry               from './pages/research/Inquiry'
 import Authority             from './pages/about/Authority'
 import Ledger                from './pages/about/Ledger'
+import Redirects             from './pages/about/Redirects'
 import ConstitutionalIndex   from './pages/constitutional/Index'
 import Changelog             from './pages/about/Changelog'
+import Orientation           from './pages/research/Orientation'
 import NotFound              from './pages/NotFound'
 
 export default function App() {
@@ -39,6 +41,8 @@ export default function App() {
           <Route path="about/authority"        element={<Authority />} />
           <Route path="about/changelog"        element={<Changelog />} />
           <Route path="about/ledger"           element={<Ledger />} />
+          <Route path="about/redirects"        element={<Redirects />} />
+          <Route path="research/orientation"   element={<Orientation />} />
           <Route path="index"                  element={<ConstitutionalIndex />} />
           <Route path="tourism"                element={<Tourism />} />
           <Route path="404"                    element={<NotFound />} />

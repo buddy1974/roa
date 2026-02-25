@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /exports/
+
+Sitemap: https://roa.vercel.app/sitemap.xml

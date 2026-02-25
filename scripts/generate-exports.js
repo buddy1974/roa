@@ -175,9 +175,76 @@ fs.writeFileSync(
   JSON.stringify(buildInfo, null, 2),
 )
 
+// ── Sitemap + robots.txt ──────────────────────────────────────────────────────
+// VITE_SITE_URL is required for correct absolute URLs. Fail loudly if absent.
+
+if (!siteUrl) {
+  console.error('✗ generate-exports: VITE_SITE_URL is not set.')
+  console.error('  Sitemap generation requires an absolute origin URL.')
+  console.error('  Set VITE_SITE_URL (e.g. https://example.com) and re-run.')
+  process.exit(1)
+}
+
+const buildDate = builtAtUTC.slice(0, 10) // YYYY-MM-DD
+
+const STATIC_ROUTES = [
+  { path: '/',                    changefreq: 'monthly', priority: '1.0' },
+  { path: '/documents/archive',   changefreq: 'weekly',  priority: '0.9' },
+  { path: '/index',               changefreq: 'monthly', priority: '0.8' },
+  { path: '/research/inquiry',    changefreq: 'monthly', priority: '0.7' },
+  { path: '/research/orientation',changefreq: 'monthly', priority: '0.7' },
+  { path: '/about/authority',     changefreq: 'monthly', priority: '0.6' },
+  { path: '/about/changelog',     changefreq: 'monthly', priority: '0.6' },
+  { path: '/about/ledger',        changefreq: 'monthly', priority: '0.5' },
+  { path: '/about/redirects',     changefreq: 'monthly', priority: '0.4' },
+]
+
+function urlEntry({ path, changefreq, priority }) {
+  return (
+    `  <url>\n` +
+    `    <loc>${siteUrl}${path}</loc>\n` +
+    `    <changefreq>${changefreq}</changefreq>\n` +
+    `    <priority>${priority}</priority>\n` +
+    `  </url>`
+  )
+}
+
+function docEntry(doc) {
+  return (
+    `  <url>\n` +
+    `    <loc>${siteUrl}/documents/${doc.id}</loc>\n` +
+    `    <lastmod>${buildDate}</lastmod>\n` +
+    `    <changefreq>yearly</changefreq>\n` +
+    `    <priority>0.8</priority>\n` +
+    `  </url>`
+  )
+}
+
+const sitemapLines = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...STATIC_ROUTES.map(urlEntry),
+  ...sortedDocs.map(docEntry),
+  '</urlset>',
+]
+const sitemapXml = sitemapLines.join('\n') + '\n'
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml)
+
+// public/robots.txt
+const robotsTxt =
+  `User-agent: *\n` +
+  `Allow: /\n` +
+  `Disallow: /exports/\n` +
+  `\n` +
+  `Sitemap: ${siteUrl}/sitemap.xml\n`
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'robots.txt'), robotsTxt)
+
 // ── Summary ───────────────────────────────────────────────────────────────────
 
 const hashed = Object.values(checksums).filter(v => v.length > 0).length
+const sitemapUrlCount = STATIC_ROUTES.length + sortedDocs.length
 console.log(`✓ generate-exports: ${indexEntries.length} documents, ${hashed} PDFs hashed`)
 console.log(`  version    : ${version}  commit: ${gitCommit}`)
 console.log(`  public/exports/roa-checksums.json`)
@@ -185,5 +252,7 @@ console.log(`  public/exports/roa-index.json    (sha256: ${indexSha256.slice(0, 
 console.log(`  public/exports/roa-index.csv`)
 console.log(`  public/exports/release.json`)
 console.log(`  public/health.json`)
+console.log(`  public/sitemap.xml              (${sitemapUrlCount} URLs)`)
+console.log(`  public/robots.txt`)
 console.log(`  src/data/roa-checksums.json`)
 console.log(`  src/data/build-info.json`)
