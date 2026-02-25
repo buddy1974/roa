@@ -18,6 +18,7 @@ import Redirects             from './pages/about/Redirects'
 import ConstitutionalIndex   from './pages/constitutional/Index'
 import Changelog             from './pages/about/Changelog'
 import Orientation           from './pages/research/Orientation'
+import Chat                  from './pages/research/Chat'
 import NotFound              from './pages/NotFound'
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="about/ledger"           element={<Ledger />} />
           <Route path="about/redirects"        element={<Redirects />} />
           <Route path="research/orientation"   element={<Orientation />} />
+          <Route path="research/chat"          element={<Chat />} />
           <Route path="index"                  element={<ConstitutionalIndex />} />
           <Route path="tourism"                element={<Tourism />} />
           <Route path="404"                    element={<NotFound />} />
