@@ -1,11 +1,15 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-/** Normalises a pathname to its canonical form (lowercase, no double slashes, no trailing slash). */
+/** Normalises a pathname to its canonical form (lowercase, no double slashes, no trailing slash, legacy slug remaps). */
 function toCanonical(pathname: string): string {
   let p = pathname.replace(/\/+/g, '/') // collapse double slashes
   p = p.toLowerCase()
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1) // remove trailing slash except root
+  // Legacy slug remap: /documents/*dinks* → /documents/*dinka*
+  if (p.startsWith('/documents/') && p.includes('dinks')) {
+    p = p.replace(/dinks/g, 'dinka')
+  }
   return p
 }
 

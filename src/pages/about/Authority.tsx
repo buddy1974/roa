@@ -97,7 +97,38 @@ const Authority = () => {
           </div>
         </section>
 
-        {/* Section 3: Canonical URL Structure */}
+        {/* Section 3: Textual Normalization Policy */}
+        <section className="mb-12" aria-labelledby="normalization-policy">
+          <h2
+            id="normalization-policy"
+            className="font-serif text-navy-900 text-xl mb-3"
+          >
+            Textual Normalization Policy
+          </h2>
+          <div className="h-px w-6 bg-gold-500 mb-6" />
+          <div className="space-y-4 text-sm font-sans text-navy-700/75 leading-relaxed">
+            <p>
+              Names and titles within this archive are standardized to their authoritative
+              spelling at the archival layer. Where source documents or prior cataloguing
+              contain transcription errors, the corrected form is applied to all metadata
+              fields including titles, document identifiers, and citation output.
+            </p>
+            <p>
+              When a name correction requires a change to a canonical document slug, a
+              client-side redirect is maintained from the legacy slug to the corrected slug.
+              This ensures that external references using the prior spelling remain
+              resolvable without returning an error.
+            </p>
+            <p>
+              The search and inquiry system applies the same normalization to user queries,
+              mapping known legacy spellings to their canonical equivalents before matching
+              against the document index. This preserves retrieval continuity for queries
+              constructed from historical external references.
+            </p>
+          </div>
+        </section>
+
+        {/* Section 4: Canonical URL Structure */}
         <section className="mb-12" aria-labelledby="canonical-structure">
           <h2
             id="canonical-structure"

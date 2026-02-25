@@ -5,6 +5,13 @@ import documentsData from '../../data/documents.json'
 
 const ALL_DOCS = documentsData.documents as Document[]
 
+// ── Query normalisation ───────────────────────────────────────────────────────
+// Maps legacy or misspelled terms to their canonical equivalents before scoring.
+
+function normalizeQuery(q: string): string {
+  return q.replace(/\bdinks\b/gi, 'dinka')
+}
+
 // ── Relevance scoring ────────────────────────────────────────────────────────
 
 function scoreDocument(doc: Document, query: string): number {
@@ -87,7 +94,7 @@ export default function Inquiry() {
   const inputRef            = useRef<HTMLInputElement>(null)
 
   const results = useMemo<Document[]>(() => {
-    const q = debouncedQuery.trim()
+    const q = normalizeQuery(debouncedQuery.trim())
     if (!q) return []
     return ALL_DOCS
       .map(doc => ({ doc, score: scoreDocument(doc, q) }))
