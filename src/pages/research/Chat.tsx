@@ -5,33 +5,23 @@ import { RouteMeta } from '../../components/seo/RouteMeta'
 import { copyToClipboard } from '../../lib/clipboard'
 import { siteUrl } from '../../lib/env'
 import documentsData from '../../data/documents.json'
+import {
+  computeDeterministicMatch,
+  type DocRecord,
+  type FaqEntry,
+  type Citation,
+} from '../../data/sources/index.ts'
+import { JsonLd } from '../../components/seo/JsonLd'
+import { webPageSchema } from '../../components/seo/schemas'
+
+const CHAT_WEBPAGE_SCHEMA = webPageSchema(
+  `${siteUrl}/research/chat`,
+  'Research Chat — Republic of Ambazonia Archive',
+  'Deterministic, document-grounded conversational orientation using the institutional archive.',
+  siteUrl,
+)
 
 // orientation_faq.json is lazy-loaded — separate chunk, not in main bundle.
-
-// ── Types ─────────────────────────────────────────────────────────────────────
-
-interface FaqEntry {
-  id:                   string
-  question:             string
-  shortAnswer:          string
-  deepAnswer:           string[]
-  ambazoniaClaim:       string
-  cameroonPosition:     string
-  internationalContext: string
-  relatedDocuments:     string[]
-  lastReviewed:         string
-}
-
-interface DocRecord { id: string; title: string }
-
-interface Citation {
-  type:  'document' | 'faq'
-  id:    string
-  title: string
-  url:   string
-  quote: string
-  why:   string
-}
 
 interface UserMsg {
   id:   string
@@ -77,69 +67,7 @@ const SUGGESTED_IDS = [
   'what-is-the-un-trusteeship-system',
 ]
 
-// Score threshold: a response is returned only when score ≥ THRESHOLD
-const THRESHOLD = 8
-
-const KEY_TERMS = new Set([
-  '1961', 'plebiscite', 'trusteeship', 'scnc', 'independence', 'federation',
-  'anglophone', 'foumban', 'gorji', 'dinka', 'ambazonia', 'cameroon',
-  'secession', 'referendum', 'mandate', 'decolonisation', 'sovereignty',
-])
-
-// ── Deterministic response engine ─────────────────────────────────────────────
-
-function computeResponse(
-  entries:  FaqEntry[],
-  rawQuery: string,
-): { entry: FaqEntry | null; score: number; fallbacks: FaqEntry[] } {
-  if (entries.length === 0) return { entry: null, score: 0, fallbacks: [] }
-
-  const q     = rawQuery.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim()
-  const words = q.split(' ').filter(w => w.length >= 3)
-
-  if (words.length === 0) {
-    return { entry: null, score: 0, fallbacks: entries.slice(0, 3) }
-  }
-
-  const scored = entries.map(e => {
-    let s = 0
-    const ql  = e.question.toLowerCase()
-    const sl  = e.shortAnswer.toLowerCase()
-    const dl  = e.deepAnswer.join(' ').toLowerCase()
-    const all = ql + ' ' + sl + ' ' + dl
-
-    if (ql.includes(q)) s += 8
-
-    const maxLen = Math.min(4, words.length)
-    for (let len = maxLen; len >= 2; len--) {
-      for (let i = 0; i <= words.length - len; i++) {
-        const chunk = words.slice(i, i + len).join(' ')
-        if (ql.includes(chunk))      s += 4
-        else if (sl.includes(chunk)) s += 2
-      }
-    }
-
-    for (const w of words) {
-      if (ql.includes(w))  s += 2
-      if (sl.includes(w) || dl.includes(w)) s += 1
-    }
-
-    for (const term of KEY_TERMS) {
-      if (q.includes(term) && all.includes(term)) s += 3
-    }
-
-    return { entry: e, score: s }
-  })
-
-  scored.sort((a, b) => b.score - a.score)
-  const best = scored[0]
-
-  if (best.score < THRESHOLD) {
-    return { entry: null, score: best.score, fallbacks: scored.slice(0, 3).map(s => s.entry) }
-  }
-
-  return { entry: best.entry, score: best.score, fallbacks: [] }
-}
+const ESCALATE_TRIGGERS = ['human', 'contact', 'email', 'speak to someone']
 
 // ── Copy text formatter ────────────────────────────────────────────────────────
 
@@ -149,7 +77,7 @@ function entryToCopyText(entry: FaqEntry): string {
     entry.shortAnswer, '',
     'Detailed Analysis:',
     ...entry.deepAnswer.map(d => '  — ' + d), '',
-    'Ambazonian Claim:', '  ' + entry.ambazoniaClaim, '',
+    'Constitutional Continuity Argument:', '  ' + entry.ambazoniaClaim, '',
     'Cameroon Position:', '  ' + entry.cameroonPosition, '',
     'International Context:', '  ' + entry.internationalContext,
   ].join('\n')
@@ -200,6 +128,12 @@ export default function Chat() {
   const [aiLoading, setAiLoading]   = useState(false)
   const bottomRef                   = useRef<HTMLDivElement>(null)
 
+  const [escalateOpen, setEscalateOpen]         = useState(false)
+  const [escalateMsg, setEscalateMsg]           = useState('')
+  const [escalateEmail, setEscalateEmail]       = useState('')
+  const [escalateStatus, setEscalateStatus]     = useState<'idle' | 'sending' | 'sent' | 'fallback' | 'error'>('idle')
+  const [escalateFallback, setEscalateFallback] = useState<string | null>(null)
+
   // Lazy-load FAQ JSON — separate Vite chunk
   useEffect(() => {
     import('../../data/orientation_faq.json').then(mod => {
@@ -227,7 +161,7 @@ export default function Chat() {
     const q    = text.trim()
     const ts   = Date.now()
     const userMsg: UserMsg = { id: `u${ts}`, role: 'user', text: q }
-    const resp = computeResponse(allEntries, q)
+    const resp = computeDeterministicMatch(allEntries, q)
     const asstMsg: AsstMsg = {
       id:        `a${ts}`,
       role:      'assistant',
@@ -261,7 +195,7 @@ export default function Chat() {
           setMessages(prev => [...prev, aiMsg])
         } else {
           // Network / unknown error → deterministic fallback
-          const resp    = computeResponse(allEntries, q)
+          const resp    = computeDeterministicMatch(allEntries, q)
           const asstMsg: AsstMsg = {
             id: `a${ts}`, role: 'assistant', query: q,
             entry: resp.entry, fallbacks: resp.fallbacks, score: resp.score,
@@ -279,7 +213,7 @@ export default function Chat() {
       }
     } catch {
       // Network failure → deterministic fallback
-      const resp    = computeResponse(allEntries, q)
+      const resp    = computeDeterministicMatch(allEntries, q)
       const asstMsg: AsstMsg = {
         id: `a${ts}`, role: 'assistant', query: q,
         entry: resp.entry, fallbacks: resp.fallbacks, score: resp.score,
@@ -293,8 +227,50 @@ export default function Chat() {
   function submit(text: string) {
     const q = text.trim()
     if (!q || !faqLoaded || aiLoading) return
+    const lower = q.toLowerCase()
+    if (ESCALATE_TRIGGERS.some(t => lower.includes(t)) && !escalateOpen) {
+      setEscalateMsg(q)
+      setEscalateOpen(true)
+      setEscalateStatus('idle')
+    }
     if (aiMode) submitAi(q)
     else submitDeterministic(q)
+  }
+
+  async function submitEscalation() {
+    if (!escalateMsg.trim()) return
+    setEscalateStatus('sending')
+    const lastAiMsg = [...messages].reverse().find((m): m is AiMsg => m.role === 'ai-assistant')
+    const citations = lastAiMsg?.citations.slice(0, 4).map(c => ({
+      title: c.title,
+      url:   c.url,
+      why:   c.why,
+    }))
+    try {
+      const resp = await fetch('/api/escalate', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          message:     escalateMsg,
+          email:       escalateEmail.trim() || undefined,
+          citations,
+          pageContext: 'Research Chat',
+          timestamp:   new Date().toISOString(),
+        }),
+      })
+      if (!resp.ok) { setEscalateStatus('error'); return }
+      const data = await resp.json() as { ok: boolean; fallback?: string; mailto?: string }
+      if (!data.ok && data.fallback === 'mailto' && data.mailto) {
+        setEscalateFallback(data.mailto)
+        setEscalateStatus('fallback')
+      } else if (data.ok) {
+        setEscalateStatus('sent')
+      } else {
+        setEscalateStatus('error')
+      }
+    } catch {
+      setEscalateStatus('error')
+    }
   }
 
   async function handleCopy(msg: AsstMsg) {
@@ -326,6 +302,7 @@ export default function Chat() {
         description="Deterministic, document-grounded conversational orientation using the institutional archive."
         canonical={`${siteUrl}/research/chat`}
       />
+      <JsonLd id="jsonld-webpage-chat" data={CHAT_WEBPAGE_SCHEMA} />
 
       {/* Page header */}
       <div className="mb-8">
@@ -489,7 +466,7 @@ export default function Chat() {
 
                     <div className="space-y-3 mb-5">
                       <div className="border-l-2 border-gold-500/40 pl-3 py-0.5">
-                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">Ambazonian Claim</p>
+                        <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1">Constitutional Continuity Argument</p>
                         <p className="text-sm font-sans text-navy-700/65 leading-relaxed">{msg.entry.ambazoniaClaim}</p>
                       </div>
                       <div className="border-l-2 border-slate-200 pl-3 py-0.5">
@@ -600,8 +577,8 @@ export default function Chat() {
           </button>
         </div>
 
-        {/* AI mode toggle */}
-        <div className="flex items-center gap-3">
+        {/* AI mode toggle + Request Human Review */}
+        <div className="flex items-center gap-3 flex-wrap">
           <button
             onClick={() => setAiMode(v => !v)}
             className={
@@ -619,8 +596,103 @@ export default function Chat() {
               AI mode is citation-bound to archive sources.
             </p>
           )}
+          <button
+            onClick={() => {
+              setEscalateOpen(v => !v)
+              setEscalateStatus('idle')
+              setEscalateFallback(null)
+            }}
+            className={
+              'text-xs font-sans border px-3 py-1.5 transition-colors ml-auto ' +
+              (escalateOpen
+                ? 'border-gold-500 bg-gold-500/10 text-navy-900'
+                : 'border-slate-200 text-navy-700/50 hover:border-gold-400 hover:text-navy-700')
+            }
+          >
+            Request Human Review
+          </button>
         </div>
       </div>
+
+      {/* Human escalation panel */}
+      {escalateOpen && (
+        <div className="max-w-2xl mt-4 border border-slate-200 p-5">
+          <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-4">
+            Request Human Review
+          </p>
+
+          {escalateStatus === 'sent' ? (
+            <p className="text-sm font-sans text-navy-700/70 leading-relaxed">
+              Your request has been forwarded to the archive team. We will be in touch if you provided a contact email.
+            </p>
+          ) : escalateStatus === 'fallback' && escalateFallback ? (
+            <div>
+              <p className="text-sm font-sans text-navy-700/70 leading-relaxed mb-3">
+                Direct delivery is currently unavailable. Use the link below to send your request by email:
+              </p>
+              <a
+                href={escalateFallback}
+                className="text-sm font-sans text-gold-600 hover:text-gold-700 underline underline-offset-2 transition-colors"
+              >
+                Open in email client
+              </a>
+            </div>
+          ) : (
+            <>
+              <div className="space-y-3 mb-4">
+                <div>
+                  <label htmlFor="escalate-msg" className="text-xs font-sans text-navy-700/50 mb-1 block">
+                    Message
+                  </label>
+                  <textarea
+                    id="escalate-msg"
+                    rows={3}
+                    value={escalateMsg}
+                    onChange={e => setEscalateMsg(e.target.value)}
+                    placeholder="Describe what you need human assistance with…"
+                    className="w-full border border-slate-200 px-3 py-2 text-sm font-sans text-navy-900 placeholder:text-navy-700/30 focus:outline-none focus:border-gold-400 bg-white resize-none"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="escalate-email" className="text-xs font-sans text-navy-700/50 mb-1 block">
+                    Your email (optional — for a reply)
+                  </label>
+                  <input
+                    id="escalate-email"
+                    type="email"
+                    value={escalateEmail}
+                    onChange={e => setEscalateEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full border border-slate-200 px-3 py-2 text-sm font-sans text-navy-900 placeholder:text-navy-700/30 focus:outline-none focus:border-gold-400 bg-white"
+                  />
+                </div>
+              </div>
+
+              {escalateStatus === 'error' && (
+                <p className="text-xs font-sans text-red-600/70 mb-3">
+                  Delivery failed. Please try again or contact us directly.
+                </p>
+              )}
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => { void submitEscalation() }}
+                  disabled={!escalateMsg.trim() || escalateStatus === 'sending'}
+                  className="text-xs font-sans border border-slate-300 px-4 py-1.5 text-navy-700/70 hover:border-gold-400 hover:text-navy-900 transition-colors disabled:opacity-40"
+                >
+                  {escalateStatus === 'sending' ? 'Sending…' : 'Submit Request'}
+                </button>
+                <button
+                  onClick={() => setEscalateOpen(false)}
+                  className="text-xs font-sans text-navy-700/35 hover:text-navy-700/60 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
 
       {/* Footer note */}
       <p className="text-xs font-sans text-navy-700/25 mt-4 max-w-2xl leading-relaxed">

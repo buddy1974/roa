@@ -1,35 +1,18 @@
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import documentsData from '../src/data/documents.json'
 import faqData from '../src/data/orientation_faq.json'
+import {
+  retrieveFromData,
+  buildSourcePrompt,
+  extractCitationsFromAnswer,
+  buildDeterministicCitations,
+  type DocRecord,
+  type FaqEntry,
+  type Citation,
+  type SourceSet,
+} from '../src/data/sources/index.ts'
 
-// ── Types ─────────────────────────────────────────────────────────────────────
-
-interface DocRecord {
-  id:       string
-  title:    string
-  year:     string
-  category: string
-}
-
-interface FaqEntry {
-  id:                   string
-  question:             string
-  shortAnswer:          string
-  deepAnswer:           string[]
-  ambazoniaClaim:       string
-  cameroonPosition:     string
-  internationalContext: string
-  relatedDocuments:     string[]
-}
-
-interface Citation {
-  type:  'document' | 'faq'
-  id:    string
-  title: string
-  url:   string
-  quote: string
-  why:   string
-}
+// ── Local types ────────────────────────────────────────────────────────────────
 
 interface ChatRequest {
   question:    string
@@ -38,10 +21,10 @@ interface ChatRequest {
 }
 
 interface ChatResponse {
-  mode:     string
-  answer:   string
+  mode:      string
+  answer:    string
   citations: Citation[]
-  limits:   { usedSources: number }
+  limits:    { usedSources: number }
 }
 
 interface RateBucket { count: number; resetAt: number }
@@ -69,117 +52,6 @@ function checkRateLimit(ip: string): boolean {
   return true
 }
 
-// ── Retrieval scoring ─────────────────────────────────────────────────────────
-
-const KEY_TERMS = new Set([
-  '1961', 'plebiscite', 'trusteeship', 'scnc', 'independence', 'federation',
-  'anglophone', 'foumban', 'gorji', 'dinka', 'ambazonia', 'cameroon',
-  'secession', 'referendum', 'mandate', 'decolonisation', 'sovereignty',
-])
-
-const YEAR_RE       = /\b(19|20)\d{2}\b/g
-const CATEGORY_TERMS = new Set(['historical', 'legal', 'un', 'diplomatic', 'constitutional'])
-
-function tokenize(s: string): string[] {
-  return s.toLowerCase().replace(/[^\w\s]/g, ' ').split(/\s+/).filter(w => w.length >= 3)
-}
-
-function scoreDoc(doc: DocRecord, q: string, words: string[], qYears: string[]): number {
-  const tl = doc.title.toLowerCase()
-  let s = 0
-
-  // Exact phrase match in title: +8
-  if (tl.includes(q)) s += 8
-
-  // Word overlap in title: +1 per token (cap 10)
-  let wordHits = 0
-  for (const w of words) { if (tl.includes(w)) wordHits++ }
-  s += Math.min(wordHits, 10)
-
-  // Year match: +2
-  if (qYears.some(y => doc.year === y)) s += 2
-
-  // Category match: +2
-  for (const cat of CATEGORY_TERMS) {
-    if (q.includes(cat) && doc.category.toLowerCase().includes(cat)) { s += 2; break }
-  }
-
-  // Key-term word overlap (keywords proxy): +1 per term (cap 6)
-  let keyHits = 0
-  for (const term of KEY_TERMS) {
-    if (q.includes(term) && tl.includes(term)) keyHits++
-  }
-  s += Math.min(keyHits, 6)
-
-  return s
-}
-
-function scoreFaq(entry: FaqEntry, q: string, words: string[]): number {
-  const ql = entry.question.toLowerCase()
-  const sl = entry.shortAnswer.toLowerCase()
-  let s = 0
-
-  // Exact phrase in question: +8
-  if (ql.includes(q)) s += 8
-
-  // Word overlap in question: +1 per token (cap 10)
-  let qHits = 0
-  for (const w of words) { if (ql.includes(w)) qHits++ }
-  s += Math.min(qHits, 10)
-
-  // Word overlap in shortAnswer (keyword proxy): +1 per token (cap 6)
-  let sHits = 0
-  for (const w of words) { if (sl.includes(w)) sHits++ }
-  s += Math.min(sHits, 6)
-
-  // Key-term bonus: +3 per matching term
-  for (const term of KEY_TERMS) {
-    if (q.includes(term) && (ql.includes(term) || sl.includes(term))) s += 3
-  }
-
-  return s
-}
-
-function retrieveSources(
-  question: string,
-  maxN: number,
-): { docs: DocRecord[]; faqs: FaqEntry[] } {
-  const q     = question.toLowerCase().replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim()
-  const words = tokenize(q)
-  const qYears: string[] = Array.from(q.matchAll(YEAR_RE), m => m[0])
-
-  const scoredDocs = ALL_DOCS
-    .map(d => ({ doc: d, score: scoreDoc(d, q, words, qYears) }))
-    .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score)
-
-  const scoredFaqs = ALL_FAQ
-    .map(e => ({ entry: e, score: scoreFaq(e, q, words) }))
-    .filter(({ score }) => score > 0)
-    .sort((a, b) => b.score - a.score)
-
-  const docs: DocRecord[] = []
-  const faqs: FaqEntry[]  = []
-
-  // Guarantee at least 2 docs and 1 FAQ if available
-  const minDocs = Math.min(2, scoredDocs.length)
-  for (let i = 0; i < minDocs; i++) docs.push(scoredDocs[i].doc)
-  if (scoredFaqs.length > 0) faqs.push(scoredFaqs[0].entry)
-
-  // Fill remaining slots
-  let remaining = maxN - docs.length - faqs.length
-  for (let i = minDocs; i < scoredDocs.length && remaining > 0; i++) {
-    docs.push(scoredDocs[i].doc)
-    remaining--
-  }
-  for (let i = 1; i < scoredFaqs.length && remaining > 0; i++) {
-    faqs.push(scoredFaqs[i].entry)
-    remaining--
-  }
-
-  return { docs, faqs }
-}
-
 // ── Refusal policy ────────────────────────────────────────────────────────────
 
 const REFUSE_PATTERNS: RegExp[] = [
@@ -200,41 +72,12 @@ Rules:
 - Every major paragraph must end with bracketed citations: [D:documentId] for documents, [F:faqId] for FAQ entries.
 - If a claim cannot be supported by the provided sources, write exactly: "Not established in available sources."
 - Maintain a calm, scholarly tone. No advocacy, no calls to action, no militant language, no glorification of any party.
+- On first reference to the territory, use the formulation "Southern British Cameroons (today Republic of Ambazonia)".
+- Frame the Ambazonia position as a constitutional continuity argument rooted in documented British trusteeship history and UN obligations, not as a separatist or militant position.
 - When the topic involves disputed history or legal status, clearly present three perspectives in sequence:
-  (1) Ambazonian claim  (2) Cameroon position  (3) International context
+  (1) Southern British Cameroons (today Republic of Ambazonia) constitutional continuity argument  (2) Cameroon position  (3) International context
 - Do not fabricate URLs, quotes, or citations not derived from the sources listed.
 - Keep the response under 1100 words.`
-
-// ── User prompt builder ───────────────────────────────────────────────────────
-
-function buildPrompt(question: string, docs: DocRecord[], faqs: FaqEntry[]): string {
-  const lines: string[] = []
-
-  for (const doc of docs) {
-    lines.push(
-      `[D:${doc.id}] "${doc.title}" — year: ${doc.year}, category: ${doc.category}, ` +
-      `url: /documents/${doc.id}`
-    )
-  }
-
-  for (const faq of faqs) {
-    const deep = faq.deepAnswer.slice(0, 2).map(d => `  — ${d}`).join('\n')
-    lines.push(
-      `[F:${faq.id}] "${faq.question}"\n` +
-      `  Summary: ${faq.shortAnswer}\n` +
-      (deep ? `${deep}\n` : '') +
-      `  Ambazonian claim: ${faq.ambazoniaClaim}\n` +
-      `  Cameroon position: ${faq.cameroonPosition}\n` +
-      `  International context: ${faq.internationalContext}`
-    )
-  }
-
-  return (
-    `Question: ${question}\n\n` +
-    `Available sources (use ONLY these):\n${lines.join('\n\n')}\n\n` +
-    `Answer the question using only these sources. Cite every major paragraph with [D:id] or [F:id].`
-  )
-}
 
 // ── Anthropic Messages API call ───────────────────────────────────────────────
 
@@ -265,88 +108,10 @@ async function callAnthropic(userPrompt: string, apiKey: string): Promise<string
   return data.content.find(c => c.type === 'text')?.text ?? ''
 }
 
-// ── Citation extraction ───────────────────────────────────────────────────────
-
-function extractCitations(
-  answer:  string,
-  docs:    DocRecord[],
-  faqs:    FaqEntry[],
-): Citation[] {
-  const docMap = new Map(docs.map(d => [d.id, d]))
-  const faqMap = new Map(faqs.map(e => [e.id, e]))
-  const seen   = new Set<string>()
-  const result: Citation[] = []
-
-  const re = /\[([DF]):([^\]]{1,120})\]/g
-  let match: RegExpExecArray | null
-
-  while ((match = re.exec(answer)) !== null && result.length < 8) {
-    const kind = match[1]!
-    const id   = match[2]!
-    const key  = `${kind}:${id}`
-    if (seen.has(key)) continue
-    seen.add(key)
-
-    if (kind === 'D') {
-      const doc = docMap.get(id)
-      if (doc) {
-        result.push({
-          type:  'document',
-          id:    doc.id,
-          title: doc.title,
-          url:   `/documents/${doc.id}`,
-          quote: doc.title.slice(0, 240),
-          why:   `${doc.category} document (${doc.year})`,
-        })
-      }
-    } else {
-      const faq = faqMap.get(id)
-      if (faq) {
-        result.push({
-          type:  'faq',
-          id:    faq.id,
-          title: faq.question,
-          url:   `/research/orientation#faq-${faq.id}`,
-          quote: faq.shortAnswer.slice(0, 240),
-          why:   'Orientation FAQ entry',
-        })
-      }
-    }
-  }
-
-  return result
-}
-
 // ── Deterministic mode response ───────────────────────────────────────────────
 
-function buildDeterministicResponse(
-  question: string,
-  docs:     DocRecord[],
-  faqs:     FaqEntry[],
-): ChatResponse {
-  const citations: Citation[] = []
-
-  for (const doc of docs.slice(0, 4)) {
-    citations.push({
-      type:  'document',
-      id:    doc.id,
-      title: doc.title,
-      url:   `/documents/${doc.id}`,
-      quote: doc.title.slice(0, 240),
-      why:   `${doc.category} document (${doc.year})`,
-    })
-  }
-  for (const faq of faqs.slice(0, 2)) {
-    citations.push({
-      type:  'faq',
-      id:    faq.id,
-      title: faq.question,
-      url:   `/research/orientation#faq-${faq.id}`,
-      quote: faq.shortAnswer.slice(0, 240),
-      why:   'Orientation FAQ entry',
-    })
-  }
-
+function buildDeterministicResponse(question: string, sourceSet: SourceSet): ChatResponse {
+  const citations = buildDeterministicCitations(sourceSet)
   const answer = citations.length > 0
     ? `Archive sources retrieved for: "${question}". Review the cited entries for detailed information.`
     : `Insufficient archive support for the query "${question}". Consider browsing the document archive or orientation FAQ.`
@@ -354,7 +119,7 @@ function buildDeterministicResponse(
   return {
     mode:      'deterministic',
     answer,
-    citations: citations.slice(0, 8),
+    citations,
     limits:    { usedSources: citations.length },
   }
 }
@@ -457,11 +222,11 @@ export default async function handler(
     return
   }
 
-  // Retrieval (always deterministic)
-  const { docs, faqs } = retrieveSources(question, maxSources)
+  // Retrieval (always runs)
+  const sourceSet = retrieveFromData(ALL_DOCS, ALL_FAQ, question, maxSources)
 
   if (mode === 'deterministic') {
-    json(res, 200, buildDeterministicResponse(question, docs, faqs))
+    json(res, 200, buildDeterministicResponse(question, sourceSet))
     return
   }
 
@@ -475,6 +240,7 @@ export default async function handler(
     return
   }
 
+  const { docs, faqs } = sourceSet
   if (docs.length + faqs.length === 0) {
     json(res, 200, {
       mode:      'ai',
@@ -486,9 +252,9 @@ export default async function handler(
   }
 
   try {
-    const prompt    = buildPrompt(question, docs, faqs)
+    const prompt    = buildSourcePrompt(question, sourceSet)
     const answer    = await callAnthropic(prompt, apiKey)
-    const citations = extractCitations(answer, docs, faqs)
+    const citations = extractCitationsFromAnswer(answer, sourceSet)
     json(res, 200, {
       mode:      'ai',
       answer,

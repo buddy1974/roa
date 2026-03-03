@@ -1,7 +1,18 @@
 import { PageContainer, PageHeading } from '../../components/layout/PageContainer'
+import { RouteMeta } from '../../components/seo/RouteMeta'
+import { JsonLd } from '../../components/seo/JsonLd'
+import { webPageSchema } from '../../components/seo/schemas'
+import { siteUrl } from '../../lib/env'
 import timelineData from '../../data/timeline.json'
 import documentsData from '../../data/documents.json'
 import { type Document } from '../../components/documents/DocumentCard'
+
+const TIMELINE_WEBPAGE_SCHEMA = webPageSchema(
+  `${siteUrl}/history/timeline`,
+  'Historical Timeline — Republic of Ambazonia Archive',
+  'A chronological record of the constitutional and political history of Southern Cameroons and the Republic of Ambazonia.',
+  siteUrl,
+)
 
 const allDocuments = documentsData.documents as Document[]
 
@@ -15,6 +26,13 @@ export default function Timeline() {
       { label: 'History', path: '/history' },
       { label: 'Historical Timeline' },
     ]}>
+      <RouteMeta
+        title="Historical Timeline — Republic of Ambazonia Archive"
+        description="A chronological record of the constitutional and political history of Southern Cameroons and the Republic of Ambazonia."
+        canonical={`${siteUrl}/history/timeline`}
+      />
+      <JsonLd id="jsonld-webpage-timeline" data={TIMELINE_WEBPAGE_SCHEMA} />
+
       <PageHeading
         title="Historical Timeline"
         subtitle="A chronological record of the constitutional and political history of Southern Cameroons and the Republic of Ambazonia."

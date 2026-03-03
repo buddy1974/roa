@@ -1,5 +1,16 @@
 import { PageContainer, PageHeading } from '../../components/layout/PageContainer'
+import { RouteMeta } from '../../components/seo/RouteMeta'
+import { JsonLd } from '../../components/seo/JsonLd'
+import { webPageSchema } from '../../components/seo/schemas'
+import { siteUrl } from '../../lib/env'
 import legalData from '../../data/legal.json'
+
+const LEGAL_WEBPAGE_SCHEMA = webPageSchema(
+  `${siteUrl}/legal`,
+  'Judicial Proceedings — Republic of Ambazonia Archive',
+  'International and domestic legal proceedings relevant to the Ambazonian sovereignty claim. Includes advisory opinions, human rights determinations, and tribunal records.',
+  siteUrl,
+)
 
 type Proceeding = (typeof legalData.proceedings)[number]
 
@@ -130,6 +141,13 @@ export default function JudicialProceedings() {
 
   return (
     <PageContainer>
+      <RouteMeta
+        title="Judicial Proceedings — Republic of Ambazonia Archive"
+        description="International and domestic legal proceedings relevant to the Ambazonian sovereignty claim. Includes advisory opinions, human rights determinations, and tribunal records."
+        canonical={`${siteUrl}/legal`}
+      />
+      <JsonLd id="jsonld-webpage-legal" data={LEGAL_WEBPAGE_SCHEMA} />
+
       <PageHeading
         title="Judicial Proceedings"
         subtitle="International and domestic legal proceedings relevant to the Ambazonian sovereignty claim. Includes advisory opinions, human rights determinations, and tribunal records."

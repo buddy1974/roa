@@ -2,9 +2,18 @@ import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PageContainer, PageHeading } from '../../components/layout/PageContainer'
 import { RouteMeta } from '../../components/seo/RouteMeta'
+import { JsonLd } from '../../components/seo/JsonLd'
+import { webPageSchema, faqPageSchema } from '../../components/seo/schemas'
 import { copyToClipboard } from '../../lib/clipboard'
 import { siteUrl } from '../../lib/env'
 import documentsData from '../../data/documents.json'
+
+const ORIENTATION_WEBPAGE_SCHEMA = webPageSchema(
+  `${siteUrl}/research/orientation`,
+  'Orientation — Republic of Ambazonia Archive',
+  'Structured overview of the historical, legal, and political dimensions of the Ambazonia question.',
+  siteUrl,
+)
 
 // orientation_faq.json is lazy-loaded via dynamic import — kept out of the
 // main JS bundle and fetched only when this page is first visited.
@@ -103,6 +112,11 @@ export default function Orientation() {
     [selectedId, allEntries]
   )
 
+  const faqSchema = useMemo(
+    () => faqPageSchema(`${siteUrl}/research/orientation`, allEntries),
+    [allEntries]
+  )
+
   function selectEntry(id: string) {
     setSelectedId(id)
     setCopied(false)
@@ -116,7 +130,7 @@ export default function Orientation() {
       '',
       selected.shortAnswer,
       '',
-      'Ambazonian claim: ' + selected.ambazoniaClaim,
+      'Constitutional continuity argument: ' + selected.ambazoniaClaim,
       '',
       'Cameroon position: ' + selected.cameroonPosition,
       '',
@@ -142,6 +156,8 @@ export default function Orientation() {
         description="Structured overview of the historical, legal, and political dimensions of the Ambazonia question."
         canonical={`${siteUrl}/research/orientation`}
       />
+      <JsonLd id="jsonld-webpage-orientation" data={ORIENTATION_WEBPAGE_SCHEMA} />
+      {faqLoaded && <JsonLd id="jsonld-faqpage" data={faqSchema} />}
 
       <PageHeading
         title="Orientation: Understanding the Ambazonia Question"
@@ -267,7 +283,7 @@ export default function Orientation() {
                   <div className="space-y-4 mb-8">
                     <div className="border-l-2 border-gold-500/40 pl-4 py-1">
                       <p className="text-xs font-sans text-navy-700/40 uppercase tracking-widest mb-1.5">
-                        Ambazonian Claim
+                        Constitutional Continuity Argument
                       </p>
                       <p className="text-sm font-sans text-navy-700/70 leading-relaxed">
                         {selected.ambazoniaClaim}

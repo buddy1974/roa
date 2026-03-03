@@ -2,8 +2,19 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../components/ui/Button'
 import { RouteMeta } from '../components/seo/RouteMeta'
+import { JsonLd } from '../components/seo/JsonLd'
+import { organizationSchema, webSiteSchema, webPageSchema } from '../components/seo/schemas'
 import { siteUrl } from '../lib/env'
 import documentsData from '../data/documents.json'
+
+const HOME_ORG_SCHEMA     = organizationSchema(siteUrl)
+const HOME_WEBSITE_SCHEMA = webSiteSchema(siteUrl)
+const HOME_WEBPAGE_SCHEMA = webPageSchema(
+  `${siteUrl}/`,
+  'Republic of Ambazonia — Official Digital Archive',
+  'The official digital archive of the Federal Republic of Ambazonia. Historical documents, legal frameworks, and governance records of the sovereignty claim.',
+  siteUrl,
+)
 
 const pillars = [
   {
@@ -39,6 +50,67 @@ const slideshowImages = [
 ]
 
 const recentDocs = documentsData.documents.slice(0, 3)
+
+const foundations = [
+  {
+    number:   '01',
+    category: 'International Law',
+    title:    '1946 UN Trusteeship Agreement',
+    body:
+      'Southern British Cameroons was placed under United Nations trusteeship in 1946 pursuant to ' +
+      'Article 77 of the UN Charter. This agreement created defined international obligations regarding ' +
+      'the territory\'s eventual self-determination, distinct from those governing the separately ' +
+      'administered French Cameroun.',
+  },
+  {
+    number:   '02',
+    category: 'UN Administration',
+    title:    'Two Legally Distinct Trust Territories',
+    body:
+      'Southern British Cameroons and the French-administered Cameroun were constituted as separate ' +
+      'UN Trust Territories under separate trusteeship agreements with distinct administrative, legal, ' +
+      'and institutional frameworks. The UN Trusteeship Council maintained independent records for each territory.',
+  },
+  {
+    number:   '03',
+    category: 'Self-Determination',
+    title:    '1961 Plebiscite: Mandate and Implementation',
+    body:
+      'The February 1961 plebiscite was conducted under UN General Assembly Resolution 1608 (XV). ' +
+      'The constitutional continuity argument holds that the union mandate required a negotiated federal ' +
+      'arrangement, and that the subsequent unitary state structure departed from the terms under which ' +
+      'the plebiscite was administered.',
+  },
+  {
+    number:   '04',
+    category: 'Treaty Law',
+    title:    'Article 102 UN Charter Registration',
+    body:
+      'Article 102 of the UN Charter requires that every treaty concluded by a UN member state be ' +
+      'registered with the Secretariat. The constitutional continuity argument notes the absence of a ' +
+      'registered, negotiated agreement governing the specific constitutional terms of the 1961 union.',
+  },
+  {
+    number:   '05',
+    category: 'Boundary Law',
+    title:    'Bakassi: Scope of the 2002 ICJ Judgment',
+    body:
+      'The 2002 International Court of Justice judgment in Cameroon v. Nigeria addressed bilateral ' +
+      'boundary delimitation under the 1906 and 1931 Anglo-German agreements. The constitutional ' +
+      'continuity argument holds that this ruling did not adjudicate the internal constitutional ' +
+      'status of the former Southern British Cameroons territory.',
+  },
+  {
+    number:   '06',
+    category: 'African Union',
+    title:    'AU Constitutive Act Art. 4(b) — Border Integrity',
+    body:
+      'Article 4(b) of the African Union Constitutive Act establishes respect for borders existing ' +
+      'at the time of independence as a foundational principle. The constitutional continuity argument ' +
+      'references the borders of Southern British Cameroons as they existed at the date of the 1961 ' +
+      'plebiscite, as distinct from post-independence boundary modifications.',
+  },
+]
 
 /** Inline SVG seal — purely decorative watermark */
 function SealWatermark() {
@@ -96,6 +168,9 @@ export default function Home() {
         description="The official digital archive of the Federal Republic of Ambazonia. Historical documents, legal frameworks, and governance records of the sovereignty claim."
         canonical={`${siteUrl}/`}
       />
+      <JsonLd id="jsonld-organization" data={HOME_ORG_SCHEMA} />
+      <JsonLd id="jsonld-website"      data={HOME_WEBSITE_SCHEMA} />
+      <JsonLd id="jsonld-webpage-home" data={HOME_WEBPAGE_SCHEMA} />
 
       {/* ── Hero Slideshow ─────────────────────────────── */}
       <section className="relative overflow-hidden bg-navy-950" style={{ minHeight: '560px' }}>
@@ -141,8 +216,9 @@ export default function Home() {
             </h1>
 
             <p className="text-parchment-200/60 text-base font-sans leading-loose mb-10 max-w-[60ch]">
-              Documenting historical continuity, legal foundations, and constitutional
-              development.
+              A primary source repository documenting the constitutional history,
+              international trusteeship record, and legal foundations of Southern
+              British Cameroons (today Republic of Ambazonia).
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -202,8 +278,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Recent documents ─────────────────────────────── */}
+      {/* ── Foundations of Constitutional Continuity ─────── */}
       <section className="bg-parchment-50 border-b border-parchment-200">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="mb-12">
+            <p className="text-xs font-sans uppercase tracking-widest mb-3" style={{ color: '#C8B070' }}>
+              Institutional Reference
+            </p>
+            <h2 className="font-serif text-navy-900 text-2xl mb-3">
+              Foundations of Constitutional Continuity
+            </h2>
+            <div className="h-px w-10 bg-gold-500 mb-5" />
+            <p className="text-sm font-sans text-navy-700/60 leading-relaxed max-w-2xl">
+              The constitutional continuity argument rests on a documented sequence of international
+              law instruments and UN proceedings. The following foundations are recorded in the primary
+              sources held in this archive.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-parchment-200/60">
+            {foundations.map(f => (
+              <div key={f.number} className="bg-parchment-50 px-6 py-8 border-t-2 border-t-navy-600/20 hover:border-t-navy-600 hover:bg-white transition-colors">
+                <p className="text-xs font-sans uppercase tracking-widest mb-4" style={{ color: '#C8B070' }}>
+                  {f.number} — {f.category}
+                </p>
+                <h3 className="font-serif text-navy-900 text-base leading-snug mb-3">
+                  {f.title}
+                </h3>
+                <p className="text-sm font-sans text-navy-700/60 leading-relaxed">
+                  {f.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Recent documents ─────────────────────────────── */}
+      <section className="bg-white border-b border-parchment-200">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="flex items-end justify-between mb-10">
             <div>
