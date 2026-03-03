@@ -7,7 +7,7 @@ import legalData from '../../data/legal.json'
 
 const LEGAL_WEBPAGE_SCHEMA = webPageSchema(
   `${siteUrl}/legal`,
-  'Judicial Proceedings — Republic of Ambazonia Archive',
+  'Judicial Proceedings — Republic of Ambazonia (ROA)',
   'International and domestic legal proceedings relevant to the Ambazonian sovereignty claim. Includes advisory opinions, human rights determinations, and tribunal records.',
   siteUrl,
 )
@@ -142,7 +142,7 @@ export default function JudicialProceedings() {
   return (
     <PageContainer>
       <RouteMeta
-        title="Judicial Proceedings — Republic of Ambazonia Archive"
+        title="Judicial Proceedings — Republic of Ambazonia (ROA)"
         description="International and domestic legal proceedings relevant to the Ambazonian sovereignty claim. Includes advisory opinions, human rights determinations, and tribunal records."
         canonical={`${siteUrl}/legal`}
       />

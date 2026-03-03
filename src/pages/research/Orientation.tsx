@@ -10,7 +10,7 @@ import documentsData from '../../data/documents.json'
 
 const ORIENTATION_WEBPAGE_SCHEMA = webPageSchema(
   `${siteUrl}/research/orientation`,
-  'Orientation — Republic of Ambazonia Archive',
+  'Orientation — Republic of Ambazonia (ROA)',
   'Structured overview of the historical, legal, and political dimensions of the Ambazonia question.',
   siteUrl,
 )
@@ -152,7 +152,7 @@ export default function Orientation() {
       ]}
     >
       <RouteMeta
-        title="Orientation — Republic of Ambazonia Archive"
+        title="Orientation — Republic of Ambazonia (ROA)"
         description="Structured overview of the historical, legal, and political dimensions of the Ambazonia question."
         canonical={`${siteUrl}/research/orientation`}
       />

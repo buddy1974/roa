@@ -37,7 +37,7 @@ export function Header() {
       <div className="border-b border-slate-200/70 bg-slate-200/40">
         <div className="max-w-7xl mx-auto px-6 py-1.5 flex items-center justify-between">
           <span className="text-xs font-sans tracking-widest uppercase" style={{ color: '#001020', opacity: 0.55 }}>
-            Federal Republic of Ambazonia — Official Digital Platform
+            Republic of Ambazonia (ROA) — Official Platform
           </span>
           <span className="text-xs font-sans tracking-widest uppercase" style={{ color: '#C8B070', opacity: 0.85 }}>
             Est. 2017

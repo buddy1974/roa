@@ -8,11 +8,11 @@ export function organizationSchema(siteUrl: string): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type':    'Organization',
-    name:        'Republic of Ambazonia Archive',
+    name:        'Republic of Ambazonia (ROA)',
     url:         siteUrl,
     description:
-      'The official digital archive of the Federal Republic of Ambazonia. ' +
-      'Historical documents, legal frameworks, and governance records of the sovereignty claim.',
+      'The Republic of Ambazonia (ROA) is the former United Nations Trust Territory of Southern British Cameroons. ' +
+      'This platform holds historical documents, legal frameworks, and governance records related to the constitutional continuity argument.',
     email: 'RepublicOfAmbazoniaDao@gmail.com',
   }
 }
@@ -21,9 +21,9 @@ export function webSiteSchema(siteUrl: string): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type':    'WebSite',
-    name:        'Republic of Ambazonia Archive',
+    name:        'Republic of Ambazonia (ROA)',
     url:         siteUrl,
-    description: 'Official digital archive of the Federal Republic of Ambazonia.',
+    description: 'Republic of Ambazonia (ROA) — primary source platform for constitutional history, UN trusteeship records, and governance documentation.',
     potentialAction: {
       '@type': 'SearchAction',
       target: {

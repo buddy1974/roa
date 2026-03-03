@@ -9,7 +9,7 @@ import { type Document } from '../../components/documents/DocumentCard'
 
 const TIMELINE_WEBPAGE_SCHEMA = webPageSchema(
   `${siteUrl}/history/timeline`,
-  'Historical Timeline — Republic of Ambazonia Archive',
+  'Historical Timeline — Republic of Ambazonia (ROA)',
   'A chronological record of the constitutional and political history of Southern Cameroons and the Republic of Ambazonia.',
   siteUrl,
 )
@@ -27,7 +27,7 @@ export default function Timeline() {
       { label: 'Historical Timeline' },
     ]}>
       <RouteMeta
-        title="Historical Timeline — Republic of Ambazonia Archive"
+        title="Historical Timeline — Republic of Ambazonia (ROA)"
         description="A chronological record of the constitutional and political history of Southern Cameroons and the Republic of Ambazonia."
         canonical={`${siteUrl}/history/timeline`}
       />

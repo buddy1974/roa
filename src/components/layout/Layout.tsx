@@ -4,6 +4,7 @@ import { Footer }            from './Footer'
 import { CanonicalRedirect } from '../seo/CanonicalRedirect'
 import { RedirectEngine }    from '../routing/RedirectEngine'
 import { JsonLd }            from '../seo/JsonLd'
+import { GlobalAssistant }   from '../chat/GlobalAssistant'
 import { siteUrl }           from '../../lib/env'
 
 /** Stable module-level constant — avoids re-serialisation on every render. */
@@ -13,13 +14,13 @@ const siteSchema: Record<string, unknown> = {
     {
       '@type': 'Organization',
       '@id':   `${siteUrl}#org`,
-      name:    'Republic of Ambazonia',
+      name:    'Republic of Ambazonia (ROA)',
       url:     siteUrl || undefined,
     },
     {
       '@type':              'GovernmentOrganization',
       '@id':                `${siteUrl}#govorg`,
-      name:                 'Federal Republic of Ambazonia',
+      name:                 'Republic of Ambazonia (ROA)',
       url:                  siteUrl || undefined,
       parentOrganization:   { '@id': `${siteUrl}#org` },
     },
@@ -39,6 +40,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <GlobalAssistant />
     </div>
   )
 }

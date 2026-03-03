@@ -11,8 +11,8 @@ const HOME_ORG_SCHEMA     = organizationSchema(siteUrl)
 const HOME_WEBSITE_SCHEMA = webSiteSchema(siteUrl)
 const HOME_WEBPAGE_SCHEMA = webPageSchema(
   `${siteUrl}/`,
-  'Republic of Ambazonia — Official Digital Archive',
-  'The official digital archive of the Federal Republic of Ambazonia. Historical documents, legal frameworks, and governance records of the sovereignty claim.',
+  'Republic of Ambazonia (ROA)',
+  'Republic of Ambazonia (ROA) — primary source platform for constitutional history, UN trusteeship records, and governance documentation of Southern British Cameroons.',
   siteUrl,
 )
 
@@ -164,8 +164,8 @@ export default function Home() {
   return (
     <>
       <RouteMeta
-        title="Republic of Ambazonia — Official Digital Archive"
-        description="The official digital archive of the Federal Republic of Ambazonia. Historical documents, legal frameworks, and governance records of the sovereignty claim."
+        title="Republic of Ambazonia (ROA)"
+        description="Republic of Ambazonia (ROA) — primary source platform for constitutional history, UN trusteeship records, and governance documentation of Southern British Cameroons."
         canonical={`${siteUrl}/`}
       />
       <JsonLd id="jsonld-organization" data={HOME_ORG_SCHEMA} />
@@ -210,9 +210,9 @@ export default function Home() {
             </div>
 
             <h1 className="font-serif text-parchment-50 text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-8">
-              Official Digital Archive
+              Republic of Ambazonia
               <br />
-              <span style={{ color: '#C8B070' }}>of the Republic of Ambazonia</span>
+              <span style={{ color: '#C8B070' }}>(ROA)</span>
             </h1>
 
             <p className="text-parchment-200/60 text-base font-sans leading-loose mb-10 max-w-[60ch]">
